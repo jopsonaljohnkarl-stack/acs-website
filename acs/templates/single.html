@@ -1,0 +1,48 @@
+<!--
+  RESOURCES ARTICLE (a WordPress post): Janet Biag's "Sample blog post (Guide)"
+  board (claude.ai artifact GPjeFaL4CcinbwXLsbhj9f, 2 Oct 2026). Header with
+  breadcrumb, category, title and byline; the featured photograph at 21:9; the
+  article beside a sticky sidebar (share, authors, "On this page", a call
+  prompt); share links; related resources; the closing band. The markers are
+  filled by resources.php. Article styles: checklist lists (class acs-checks),
+  tip boxes (group class acs-tip) and FAQ accordions (Details blocks).
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"acs-res","layout":{"type":"default"}} -->
+<main class="wp-block-group acs-res">
+<!-- wp:html -->
+<div data-acs-res="post-head"></div>
+<!-- /wp:html -->
+<!-- wp:group {"className":"acs-res-post-image","layout":{"type":"default"}} -->
+<div class="wp-block-group acs-res-post-image">
+<!-- wp:post-featured-image {"aspectRatio":"21/9"} /-->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"acs-res-post","layout":{"type":"default"}} -->
+<div class="wp-block-group acs-res-post">
+<!-- wp:group {"tagName":"article","className":"acs-res-post__body","layout":{"type":"default"}} -->
+<article class="wp-block-group acs-res-post__body">
+<!-- wp:post-content {"layout":{"type":"default"}} /-->
+<!-- wp:html -->
+<div data-acs-res="post-share"></div>
+<!-- /wp:html -->
+</article>
+<!-- /wp:group -->
+<!-- wp:group {"tagName":"aside","className":"acs-res-post__aside","layout":{"type":"default"}} -->
+<aside class="wp-block-group acs-res-post__aside">
+<!-- wp:html -->
+<div data-acs-res="post-aside"></div>
+<!-- /wp:html -->
+</aside>
+<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+<!-- wp:html -->
+<div data-acs-res="related"></div>
+<!-- /wp:html -->
+<!-- wp:html -->
+<div data-acs-res="cta"></div>
+<!-- /wp:html -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

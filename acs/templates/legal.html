@@ -1,0 +1,58 @@
+<!--
+  LEGAL PAGE: Privacy Policy, Terms, Cookies, Pricing Disclaimer. (Candidate
+  Privacy has its own designed layout, on content-page.)
+
+  Layout: the "first version" board of Janet Biag's legal mockup (claude.ai
+  artifact AjLNRZgK4ivmHQKeyAq2DV), which she asked for on each of these four
+  pages on Asana, 2 Oct 2026 ("please use this mockup ... first version"): a
+  grey header band (eyebrow, title, last-updated line), then the numbered
+  sections beside a sticky "On this page" list built from the page's h2s.
+  Her board's "Applying for a role?" box belongs to the candidate notice and
+  is left out here. Bracketed placeholders are highlighted, and the document's
+  LEGAL DRAFT paragraph (class acs-legal-draft) shows as an amber notice.
+  The markers are filled in resources.php (acs_legal_*).
+
+  ⚠⚠ NONE OF THESE PUBLISHES WITHOUT THE AUSTRALIAN SOLICITOR. Register row
+  Legal 1.0 names nobody, and the proposal writes these last on purpose because
+  they run on the reviewer's timeline, which is the most common cause of a
+  delayed launch.
+
+  ⚠ THE PRIVACY POLICY IS ALSO A DEPENDENCY OF THE FORMS. Every enquiry form's
+  consent checkbox links to it, so this page blocks lead capture going live as
+  well as the legal set.
+
+  ⚠ Cross-border disclosure (Delivery Model 6.0) lives in ONE reviewed place.
+  The Data Security page carries a plain-English summary that links here; it
+  does not restate the legal statement in its own words.
+
+  ⚠ "Last updated [DD Month YYYY]" stays a placeholder. A date here is a claim
+  about legal review: do not publish one until a named solicitor has reviewed
+  the page.
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","className":"acs-legal","layout":{"type":"default"}} -->
+<main class="wp-block-group acs-legal">
+<!-- wp:group {"className":"acs-legal__head","layout":{"type":"default"}} -->
+<div class="wp-block-group acs-legal__head"><!-- wp:group {"className":"acs-legal__head-inner","layout":{"type":"default"}} -->
+<div class="wp-block-group acs-legal__head-inner"><!-- wp:paragraph {"className":"acs-legal__eyebrow"} -->
+<p class="acs-legal__eyebrow">Terms and privacy</p>
+<!-- /wp:paragraph -->
+<!-- wp:post-title {"level":1} /-->
+<!-- wp:paragraph {"className":"acs-legal__updated"} -->
+<p class="acs-legal__updated">Last updated [DD Month YYYY]</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"acs-legal__body","layout":{"type":"default"}} -->
+<div class="wp-block-group acs-legal__body"><!-- wp:group {"tagName":"article","className":"acs-legal__article","layout":{"type":"default"}} -->
+<article class="wp-block-group acs-legal__article"><!-- wp:post-content {"layout":{"type":"default"}} /--></article>
+<!-- /wp:group -->
+<!-- wp:group {"tagName":"aside","className":"acs-legal__aside","layout":{"type":"default"}} -->
+<aside class="wp-block-group acs-legal__aside"><!-- wp:html -->
+<div data-acs-res="legal-toc"></div>
+<!-- /wp:html --></aside>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

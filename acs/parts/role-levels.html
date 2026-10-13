@@ -1,0 +1,32 @@
+<!--
+  THE THREE LEVELS, shared by every staff (role) page. ONE definition: edit it
+  here and all eight role pages change. Included by acs/templates/role.html and
+  by each composed role page (content/<role>.html) as a template part.
+
+  ⚠ DESCRIBED BY SCOPE, NEVER BY PRICE. The wording is ACS register row
+  Commercial 1.0's, which carries an answer with no name and no date. It is on
+  the password-protected review site only; it MUST be attributed (Chris Banks)
+  before the site goes public. See COPY-PROVENANCE.md, 2026-10-01.
+-->
+  <!-- THE THREE LEVELS -->
+  <!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+  <div class="wp-block-group" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--60)">
+    <!-- wp:heading {"level":2,"fontSize":"x-large","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
+    <h2 class="wp-block-heading has-x-large-font-size" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40)">Described by what they own</h2>
+    <!-- /wp:heading -->
+    <!-- wp:html -->
+    <div class="acs-levels">
+      <div><h3>Junior</h3><p>Executes defined tasks within an established process. Supervised closely in the first ninety days.</p></div>
+      <div><h3>Intermediate</h3><p>Owns a workflow end to end. Handles exceptions without escalating them to you.</p></div>
+      <div><h3>Senior</h3><p>Owns outcomes and may coordinate others. Contributes to how the process itself works.</p></div>
+    </div>
+    <!-- /wp:html -->
+    <!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}},"layout":{"type":"default"}} -->
+    <div class="wp-block-group" style="margin-top:var(--wp--preset--spacing--40)">
+      <!-- wp:paragraph {"className":"is-measure","fontSize":"small","textColor":"ink-muted"} -->
+      <p class="is-measure has-ink-muted-color has-text-color has-small-font-size">Full time is the standard engagement. Part time is available on selected roles, by discussion. Pricing is provided on application, based on the position and level required.</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+  </div>
+  <!-- /wp:group -->

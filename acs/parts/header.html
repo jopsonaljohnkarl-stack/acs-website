@@ -1,0 +1,76 @@
+<!--
+  The document's title block.
+
+  ⚠⚠ ONE ROW, NOT TWO, SINCE 2026-08-20. It was a masthead row above a
+  navigation row and it measured **213 pixels tall** - against a 80px cap and
+  eating a quarter of a 900px viewport on every page of the site. It also
+  pushed the home page's hero out of the first screen. Measured, not guessed.
+
+  The two-row masthead was the document world applied to the one surface that
+  is not the document: a reader arrives to read the page, not the letterhead.
+
+  ⚠ THE NAVIGATION BLOCK CARRIES NO `ref`, DELIBERATELY. It used to carry
+  {"ref":19}, a database row id, written into a file that is in git and
+  restored onto a database where that id does not exist. Without a ref the
+  block resolves the most recently published navigation menu, and
+  `content/seed.php` guarantees that is `ACS main` by creating it and removing
+  the placeholder one WordPress generates for itself.
+
+  ⚠ The six menu items are placeholders. The real six are in the sitemap
+  diagram that did not survive text extraction; ask Janet for them. They read
+  left to right in the order a buyer asks questions: how does this work, who
+  can I hire, do you understand my industry, what will it cost, can I trust you.
+
+  ⚠ The tagline beside the title is unapproved (People and Brand 3.0, none
+  selected) and it hides below 1200px, where the navigation needs the room.
+-->
+<!-- wp:group {"tagName":"header","backgroundColor":"sheet","style":{"border":{"bottom":{"color":"var:preset|color|ink","width":"2px"}},"spacing":{"padding":{"top":"var:preset|spacing|20","bottom":"var:preset|spacing|20"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<header class="wp-block-group has-sheet-background-color has-background" style="border-bottom-color:var(--wp--preset--color--ink);border-bottom-width:2px;padding-top:var(--wp--preset--spacing--20);padding-bottom:var(--wp--preset--spacing--20)">
+
+  <!-- wp:group {"className":"acs-masthead","layout":{"type":"flex","justifyContent":"space-between","flexWrap":"wrap"}} -->
+  <div class="wp-block-group acs-masthead">
+
+    <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+    <div class="wp-block-group">
+      <!-- wp:html -->
+      <!-- APPROVED BRAND ASSET, the first on the site. Primary lockup (blue) from
+           Janet's file delivery of 2026-08-26, following the brand-board approval
+           she relayed the same morning ("ito daw approve", team-powepuff 09:03).
+           Original file archived at
+           context/source-docs/acs-logo-2026-08-26/1-primary-blue.png; this asset
+           is that file trimmed of its margins and resized, nothing else. The
+           alternate (red) lockup is archived, unused. ⚠ No square mark and no
+           reversed/white version were delivered — the favicon and any dark-ground
+           placement wait for those files, and the dark footer keeps its text
+           title. Rendered ~48px tall inside the 80px header cap. -->
+      <a class="acs-logo" href="/"><img src="/wp-content/themes/acs/assets/img/acs-logo-primary.png" alt="All Commercial Services Australia" width="552" height="240"></a>
+      <!-- /wp:html -->
+      <!-- wp:paragraph {"className":"acs-tagline","fontFamily":"code","fontSize":"x-small","textColor":"ink-muted","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.1em"}}} -->
+      <p class="acs-tagline has-ink-muted-color has-text-color has-code-font-family has-x-small-font-size" style="letter-spacing:0.1em;text-transform:uppercase">Dedicated offshore teams · Australian accountability</p>
+      <!-- /wp:paragraph -->
+    </div>
+    <!-- /wp:group -->
+
+    <!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap"}} -->
+    <div class="wp-block-group">
+      <!-- wp:navigation {"overlayMenu":"mobile","fontSize":"small","style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} /-->
+      <!-- wp:buttons -->
+      <div class="wp-block-buttons">
+        <!-- wp:button -->
+        <!-- Header button is Book a Call per the sitemap — Janet's call, 25 Aug 2026 (internal Slack, team-powepuff). Build Your Team stays as the page and the in-page CTAs. -->
+        <div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="/book-a-call/">Book a call</a></div>
+        <!-- /wp:button -->
+        <!-- wp:button {"className":"is-style-outline"} -->
+        <!-- Second header button, Janet's QA email 16 Sep 2026: a visible Get Pricing button straight to the calculator, so visitors do not depend on the dropdown. Book a Call stays the filled primary. -->
+        <div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/pricing/build-your-team/">Get pricing</a></div>
+        <!-- /wp:button -->
+      </div>
+      <!-- /wp:buttons -->
+    </div>
+    <!-- /wp:group -->
+
+  </div>
+  <!-- /wp:group -->
+
+</header>
+<!-- /wp:group -->

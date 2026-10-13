@@ -1,0 +1,424 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/theme.json",
+	"version": 3,
+	"settings": {
+		"appearanceTools": true,
+		"useRootPaddingAwareAlignments": true,
+		"layout": {
+			"contentSize": "44rem",
+			"wideSize": "78rem"
+		},
+		"color": {
+			"defaultPalette": false,
+			"defaultGradients": false,
+			"custom": false,
+			"customDuotone": false,
+			"duotone": [
+				{
+					"colors": [
+						"#0B2545",
+						"#DDE4EC"
+					],
+					"slug": "acs",
+					"name": "ACS"
+				},
+				{
+					"colors": [
+						"#0D1321",
+						"#F6F8FA"
+					],
+					"slug": "ink",
+					"name": "Ink"
+				}
+			],
+			"palette": [
+				{
+					"slug": "paper",
+					"color": "oklch(0.9782 0.0034 247.86)",
+					"name": "Paper"
+				},
+				{
+					"slug": "sheet",
+					"color": "oklch(1.0000 0.0000 89.88)",
+					"name": "Sheet"
+				},
+				{
+					"slug": "field",
+					"color": "oklch(0.9445 0.0080 253.85)",
+					"name": "Field"
+				},
+				{
+					"slug": "ink",
+					"color": "oklch(0.1884 0.0302 265.88)",
+					"name": "Ink"
+				},
+				{
+					"slug": "ink-muted",
+					"color": "oklch(0.4836 0.0257 250.46)",
+					"name": "Muted ink"
+				},
+				{
+					"slug": "rule",
+					"color": "oklch(0.8355 0.0153 251.18)",
+					"name": "Rule"
+				},
+				{
+					"slug": "structure",
+					"color": "oklch(0.3152 0.1048 255.64)",
+					"name": "Structure"
+				},
+				{
+					"slug": "structure-bright",
+					"color": "oklch(0.4276 0.1434 260.71)",
+					"name": "Structure bright"
+				},
+				{
+					"slug": "accent-sky",
+					"name": "Accent sky",
+					"color": "oklch(0.6690 0.1668 249.65)"
+				},
+				{
+					"slug": "action",
+					"color": "oklch(0.5500 0.2327 259.88)",
+					"name": "Action"
+				}
+			]
+		},
+		"typography": {
+			"fluid": true,
+			"customFontSize": false,
+			"writingMode": true,
+			"fontFamilies": [
+				{
+					"slug": "body",
+					"name": "Body",
+					"fontFamily": "Archivo, ui-sans-serif, system-ui, sans-serif",
+					"fontFace": [
+						{
+							"fontFamily": "Archivo",
+							"fontStyle": "normal",
+							"fontWeight": "100 900",
+							"fontStretch": "62.5% 125%",
+							"src": [
+								"file:./assets/fonts/Archivo-Variable.woff2"
+							],
+							"fontDisplay": "swap"
+						}
+					]
+				},
+				{
+					"slug": "code",
+					"name": "Reference",
+					"fontFamily": "\"Martian Mono\", ui-monospace, monospace",
+					"fontFace": [
+						{
+							"fontFamily": "Martian Mono",
+							"fontStyle": "normal",
+							"fontWeight": "100 800",
+							"src": [
+								"file:./assets/fonts/MartianMono-Variable.woff2"
+							],
+							"fontDisplay": "swap"
+						}
+					]
+				}
+			],
+			"fontSizes": [
+				{
+					"slug": "x-small",
+					"name": "Reference",
+					"size": "0.75rem",
+					"fluid": false
+				},
+				{
+					"slug": "small",
+					"name": "Small",
+					"size": "0.875rem",
+					"fluid": false
+				},
+				{
+					"slug": "medium",
+					"name": "Body",
+					"size": "1.0625rem",
+					"fluid": false
+				},
+				{
+					"slug": "large",
+					"name": "Lead",
+					"size": "1.375rem",
+					"fluid": {
+						"min": "1.1875rem",
+						"max": "1.4375rem"
+					}
+				},
+				{
+					"slug": "x-large",
+					"name": "Clause",
+					"size": "2rem",
+					"fluid": {
+						"min": "1.625rem",
+						"max": "2.25rem"
+					}
+				},
+				{
+					"slug": "xx-large",
+					"name": "Statement",
+					"size": "3.25rem",
+					"fluid": {
+						"min": "2.25rem",
+						"max": "4rem"
+					}
+				}
+			],
+			"defaultFontSizes": false
+		},
+		"spacing": {
+			"customSpacingSize": false,
+			"units": [
+				"rem",
+				"%",
+				"vw"
+			],
+			"spacingSizes": [
+				{
+					"slug": "20",
+					"name": "1",
+					"size": "0.5rem"
+				},
+				{
+					"slug": "30",
+					"name": "2",
+					"size": "1rem"
+				},
+				{
+					"slug": "40",
+					"name": "3",
+					"size": "1.5rem"
+				},
+				{
+					"slug": "50",
+					"name": "4",
+					"size": "2.5rem"
+				},
+				{
+					"slug": "60",
+					"name": "5",
+					"size": "4rem"
+				},
+				{
+					"slug": "70",
+					"name": "6",
+					"size": "6rem"
+				},
+				{
+					"slug": "80",
+					"name": "7",
+					"size": "9rem"
+				}
+			],
+			"defaultSpacingSizes": false
+		},
+		"border": {
+			"color": true,
+			"radius": false,
+			"style": true,
+			"width": true
+		},
+		"custom": {
+			"alert": "oklch(0.4520 0.1780 25.03)"
+		}
+	},
+	"styles": {
+		"color": {
+			"background": "var(--wp--preset--color--paper)",
+			"text": "var(--wp--preset--color--ink)"
+		},
+		"typography": {
+			"fontFamily": "var(--wp--preset--font-family--body)",
+			"fontSize": "var(--wp--preset--font-size--medium)",
+			"lineHeight": "1.6",
+			"fontWeight": "420"
+		},
+		"spacing": {
+			"blockGap": "var(--wp--preset--spacing--40)",
+			"padding": {
+				"left": "var(--wp--preset--spacing--40)",
+				"right": "var(--wp--preset--spacing--40)"
+			}
+		},
+		"elements": {
+			"link": {
+				"color": {
+					"text": "var(--wp--preset--color--action)"
+				},
+				"typography": {
+					"textDecoration": "underline",
+					"textUnderlineOffset": "0.18em"
+				},
+				":hover": {
+					"color": {
+						"text": "var(--wp--preset--color--structure-bright)"
+					}
+				}
+			},
+			"heading": {
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--body)",
+					"fontWeight": "600",
+					"lineHeight": "1.12",
+					"letterSpacing": "-0.015em"
+				}
+			},
+			"h1": {
+				"typography": {
+					"fontWeight": "700"
+				}
+			},
+			"h2": {
+				"typography": {}
+			},
+			"button": {
+				"color": {
+					"background": "var(--wp--preset--color--action)",
+					"text": "var(--wp--preset--color--sheet)"
+				},
+				"typography": {
+					"fontFamily": "var(--wp--preset--font-family--code)",
+					"fontSize": "var(--wp--preset--font-size--x-small)",
+					"fontWeight": "600",
+					"textTransform": "uppercase",
+					"letterSpacing": "0.08em"
+				},
+				"border": {
+					"radius": "0"
+				},
+				"spacing": {
+					"padding": {
+						"top": "1rem",
+						"bottom": "1rem",
+						"left": "1.75rem",
+						"right": "1.75rem"
+					}
+				},
+				":hover": {
+					"color": {
+						"background": "var(--wp--preset--color--ink)"
+					}
+				}
+			}
+		},
+		"blocks": {
+			"core/table": {
+				"color": {
+					"text": "var(--wp--preset--color--ink)"
+				},
+				"typography": {
+					"fontSize": "var(--wp--preset--font-size--small)"
+				},
+				"border": {
+					"color": "var(--wp--preset--color--rule)",
+					"style": "solid",
+					"width": "1px"
+				}
+			},
+			"core/separator": {
+				"color": {
+					"text": "var(--wp--preset--color--rule)"
+				}
+			},
+			"core/site-title": {
+				"typography": {
+					"fontWeight": "700",
+					"letterSpacing": "-0.02em"
+				}
+			}
+		}
+	},
+	"templateParts": [
+		{
+			"name": "header",
+			"title": "Header",
+			"area": "header"
+		},
+		{
+			"name": "footer",
+			"title": "Footer",
+			"area": "footer"
+		},
+		{
+			"name": "role-levels",
+			"title": "Role pages: the three levels",
+			"area": "uncategorized"
+		},
+		{
+			"name": "role-distinction",
+			"title": "Role pages: a managed service, not staff supply",
+			"area": "uncategorized"
+		}
+	],
+	"customTemplates": [
+		{
+			"name": "content-page",
+			"title": "Composed page",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "role",
+			"title": "Role page",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "industry",
+			"title": "Industry page",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "directory",
+			"title": "Directory page",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "legal",
+			"title": "Legal page",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "build-your-team",
+			"title": "Build Your Team",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "blog-index",
+			"title": "Blog index (Resources)",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "vacancies-index",
+			"title": "Vacancies index",
+			"postTypes": [
+				"page"
+			]
+		},
+		{
+			"name": "resource-category",
+			"title": "Resources category",
+			"postTypes": [
+				"page"
+			]
+		}
+	]
+}

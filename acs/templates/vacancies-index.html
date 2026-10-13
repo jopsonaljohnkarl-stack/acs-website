@@ -1,0 +1,97 @@
+<!--
+  VACANCIES INDEX: layout v2 "careers hub" of Janet Biag's mockup (claude.ai
+  artifact D5jThSYNNGR4oCdJFTkaap), chosen by Janet on Slack 2 Oct 2026 09:56
+  ("parang mas okay yung pangatlo na design"), with two changes she asked for:
+  the "One business. Australian hours." banner is removed, and in its place go
+  layout 1's "What happens after you apply" and "How your application details
+  are handled" ("ito lagay mo"). V2's own later steps block and privacy line
+  are dropped, because they repeat those two sections.
+  Every visible line is Janet's mockup wording, verbatim. Photos are reused
+  site photographs (her mockup has "Photos here" slots).
+  "Upload your CV" and "Register your interest" go to the staffing provider;
+  its address is the option `acs_provider_url` (unset, so they point at # until
+  it is confirmed). Search, role tiles and "View all" filter the list in the
+  browser; no candidate data is collected on this site.
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group">
+<!-- wp:group {"className":"acs-hub-hero-band","backgroundColor":"field","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group acs-hub-hero-band has-field-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:html -->
+<div class="acs-hub-hero"><div class="acs-hub-hero__photo"><!-- PHOTOGRAPH team-15.jpg: supplied by Janet Biag (10 Sep set), reused in a "Photos here" slot of her vacancies mockup v2, 2 Oct 2026. See PHOTOGRAPHY.md. --><figure class="acs-shot"><div class="acs-shot__frame" style="aspect-ratio:4/5"><img src="/wp-content/themes/acs/assets/img/team-15.jpg" alt="" width="1024" height="1536" loading="lazy" decoding="async"></div></figure></div><div class="acs-hub-hero__copy"><h1>Find a dedicated role with <span class="acs-hub-accent">an Australian business</span></h1><p class="acs-hub-lead">ACS partners with an established offshore staffing provider to place dedicated team members with Australian businesses.</p><form role="search" class="acs-hub-search" data-acs-vac-search-form><label for="acs-vac-q" class="screen-reader-text">Search roles by keyword</label><input id="acs-vac-q" type="search" placeholder="Search roles by keyword" data-acs-vac-search><button type="submit" class="wp-element-button">Search</button></form><p><a class="wp-element-button acs-hub-cv" data-acs-provider-link href="#">Upload your CV</a></p><p class="acs-hub-note">Applications are handled by our established offshore staffing provider.</p></div></div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"backgroundColor":"sheet","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group has-sheet-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:html -->
+<div class="acs-hub-center"><h2>Roles we place</h2><p>Pick a role type to see its open vacancies.</p></div><div class="acs-hub-tiles"><button type="button" class="acs-hub-tile" data-acs-role-tile="Telesales"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 14v-2a8 8 0 0 1 16 0v2"></path><rect x="3" y="14" width="4" height="6" rx="1.5"></rect><rect x="17" y="14" width="4" height="6" rx="1.5"></rect><path d="M19 20a3 3 0 0 1-3 2h-3"></path></svg><span>Telesales</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="Operations Assistant"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"></rect><path d="M3 10h18M8 3v4M16 3v4"></path><path d="M8 14h3v3H8z"></path></svg><span>Operations Assistants</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="Operations Manager"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="6" height="6" rx="1"></rect><rect x="15" y="15" width="6" height="6" rx="1"></rect><rect x="15" y="3" width="6" height="6" rx="1"></rect><path d="M9 6h6M18 9v6"></path></svg><span>Operations Managers</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="Accounting And Finance"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"></rect><path d="M8 7h8"></path><path d="M8 12h.01M12 12h.01M16 12h.01M8 16h.01M12 16h.01M16 16h.01"></path></svg><span>Accounting And Finance</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="Bookkeeper"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z"></path><path d="M4 21a2 2 0 0 1 2-2h13v2"></path><path d="M9 8h6M9 12h4"></path></svg><span>Bookkeepers</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="Admin Assistant"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="m3 7 9 6 9-6"></path></svg><span>Admin Assistants</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="AI And Automation Specialist"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"></rect><path d="M10 3v4M14 3v4M10 17v4M14 17v4M3 10h4M3 14h4M17 10h4M17 14h4"></path></svg><span>AI And Automation Specialists</span></button><button type="button" class="acs-hub-tile" data-acs-role-tile="Social Media Manager"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"></path><path d="M8 9h8M8 12h5"></path></svg><span>Social Media Managers</span></button></div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"className":"acs-hub-perkband","backgroundColor":"field","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group acs-hub-perkband has-field-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--40);padding-bottom:var(--wp--preset--spacing--40)">
+<!-- wp:html -->
+<ul class="acs-hub-perks"><li><svg class="acs-hub-perk__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"></rect><path d="M8 20h8M12 16v4"></path></svg>Remote Roles</li><li><svg class="acs-hub-perk__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>Agreed Australian Client Hours</li><li><svg class="acs-hub-perk__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"></path><path d="M12 19.5h.01"></path></svg>Business-Grade Equipment And Connectivity</li><li><svg class="acs-hub-perk__icon" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="9" cy="8" r="3"></circle><path d="M3 20a6 6 0 0 1 12 0"></path><circle cx="17" cy="9" r="2.5"></circle><path d="M15.5 14.2A5 5 0 0 1 21 19"></path></svg>Dedicated To One Business</li></ul>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"backgroundColor":"sheet","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group has-sheet-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:html -->
+<div data-acs-vacancies></div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group" style="margin-top:0;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:html -->
+<div class="acs-hub-center"><h2>Work with <span class="acs-hub-accent">ACS</span></h2><p>ACS partners with an established offshore staffing provider to place dedicated team members with Australian businesses. Strong written and spoken English, reliability and genuine attention to detail matter more than a specific qualification for most roles.</p></div><div class="acs-jw"><div class="acs-jw__stage"><div class="acs-jw__band acs-jw__band--navy" aria-hidden="true"></div><div class="acs-jw__band acs-jw__band--blue" aria-hidden="true"></div><div class="acs-jw__photo acs-jw__photo--l"><!-- PHOTOGRAPH janet-vac-discover.png: Janet Biag, Slack 2 Oct 2026 ("Two Filipina office professionals"), cut out to a transparent PNG with macOS Vision subject masking. See PHOTOGRAPHY.md. --><img class="acs-jw__img" src="/wp-content/themes/acs/assets/img/janet-vac-discover.png" alt="" width="534" height="880" loading="lazy" decoding="async"></div><div class="acs-jw__text acs-jw__text--l"><h3>Discover ACS</h3><p>See how ACS works with Australian businesses, the roles we place most often, and what to expect if you are shortlisted.</p><a class="wp-element-button" href="/work-with-us/">Work with us</a></div><div class="acs-jw__photo acs-jw__photo--r"><!-- PHOTOGRAPH janet-vac-register.png: Janet Biag, Slack 2 Oct 2026 ("Two Filipina office professionals"), cut out to a transparent PNG with macOS Vision subject masking. See PHOTOGRAPHY.md. --><img class="acs-jw__img" src="/wp-content/themes/acs/assets/img/janet-vac-register.png" alt="" width="560" height="819" loading="lazy" decoding="async"></div><div class="acs-jw__overlay" aria-hidden="true"></div><div class="acs-jw__text acs-jw__text--r"><h3>Role not listed?</h3><p>If none of the current vacancies fit, register your interest through our staffing provider so you can be considered as new roles open.</p><a class="wp-element-button" data-acs-provider-link href="#">Register your interest</a></div></div></div></div>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"backgroundColor":"field","style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group has-field-background-color has-background" style="margin-top:0;padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:heading {"fontSize":"x-large"} -->
+<h2 class="wp-block-heading has-x-large-font-size">What happens after you apply</h2>
+<!-- /wp:heading -->
+<!-- wp:html -->
+<ol class="acs-vac-steps">
+<li><span class="acs-vac-steps__no">01</span><h3>Apply through our provider</h3><p>Use the apply button on the listing. Applications are handled by our established offshore staffing provider.</p></li>
+<li><span class="acs-vac-steps__no">02</span><h3>Complete three assessments</h3><p>Skills testing, an English assessment and a role specific assessment. Results are summarised on a scorecard.</p></li>
+<li><span class="acs-vac-steps__no">03</span><h3>Meet the business</h3><p>Successful candidates join a shortlist for the Australian business, which interviews and makes the final decision.</p></li>
+</ol>
+<!-- /wp:html -->
+</div>
+<!-- /wp:group -->
+<!-- wp:group {"style":{"spacing":{"margin":{"top":"0"},"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|70"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<div class="wp-block-group" style="margin-top:0;padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--70)">
+<!-- wp:columns {"verticalAlignment":"center"} -->
+<div class="wp-block-columns are-vertically-aligned-center">
+<!-- wp:column {"width":"66%","verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:66%">
+<!-- wp:heading {"fontSize":"large"} -->
+<h2 class="wp-block-heading has-large-font-size">How your application details are handled</h2>
+<!-- /wp:heading -->
+<!-- wp:paragraph -->
+<p>If you are shortlisted, your scorecard and application details are shared only with the Australian business considering the role. They are not shared with other businesses or used for any other purpose.</p>
+<!-- /wp:paragraph -->
+</div>
+<!-- /wp:column -->
+<!-- wp:column {"verticalAlignment":"center"} -->
+<div class="wp-block-column is-vertically-aligned-center">
+<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right"}} -->
+<div class="wp-block-buttons"><!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/candidate-privacy/">Read the candidate privacy notice</a></div>
+<!-- /wp:button --></div>
+<!-- /wp:buttons -->
+</div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+</div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

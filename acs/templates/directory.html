@@ -1,0 +1,47 @@
+<!--
+  DIRECTORY PAGE. Two of these: Staff You Can Hire (parent of the 8 role pages)
+  and Who We Help (parent of the 5 industry pages).
+
+  ⚠ THE PROPOSAL SINGLES THESE OUT: "The two directories set the template for
+  the sixteen pages beneath them." Built on copy day 2, before the role and
+  industry pages, for exactly that reason.
+
+  ⚠ Core's Query Loop cannot list "children of the current page" from a
+  template, only children of a FIXED parent id, so one template would have made
+  Who We Help list the roles. The acs/child-index block does the query. It
+  listed every page on the site, Sample Page included, until it did.
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--80)">
+
+  <!-- 2026-09-16: the page now carries Janet's Batch 2 "Staff You Can Hire"
+       document in full: its own H1, hero paragraph, sections and CTAs, with
+       the eight role cards composed from the document's own bullets
+       (compose-content.py, d_role_cards). So the title, rule, prose-width
+       wrapper and the acs/child-index block that this template used to add
+       are gone: the title would have made two H1s, and the child-index would
+       have listed the same eight pages twice. Post content renders at full
+       width, as on every content page. -->
+  <!-- wp:post-content {"layout":{"type":"default"}} /-->
+
+  <!-- Read-next lives in the TEMPLATE, not the page content: post-content on
+       this template is prose-width (44rem) and the index cards need the full
+       column. Only /staff/ uses this template (pages.json). Summaries reused
+       verbatim from existing read-next blocks - no new copy. 2026-08-31. -->
+  <!-- wp:group {"className":"acs-read-next","style":{"spacing":{"padding":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+  <div class="wp-block-group acs-read-next" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--60)">
+    <!-- wp:heading {"level":2,"fontSize":"x-large","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
+    <h2 class="wp-block-heading has-x-large-font-size" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40)">Where this leads</h2>
+    <!-- /wp:heading -->
+    <!-- wp:html -->
+    <div class="acs-index"><a class="acs-index__item" href="/how-it-works/"><span class="acs-index__name">How it works</span><p class="acs-index__summary">The four stages, what we ask you for, and what the first week actually looks like.</p></a><a class="acs-index__item" href="/pricing/"><span class="acs-index__name">How pricing works</span><p class="acs-index__summary">Why there is no number on this site, and the four things that decide yours.</p></a><a class="acs-index__item" href="/who-we-help/"><span class="acs-index__name">Who we help</span><p class="acs-index__summary">Five sectors and what the back office looks like in each of them.</p></a></div>
+    <!-- /wp:html -->
+  </div>
+  <!-- /wp:group -->
+
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

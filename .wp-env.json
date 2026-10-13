@@ -1,0 +1,18 @@
+{
+  "core": null,
+  "themes": [
+    "./acs"
+  ],
+  "port": 8888,
+  "testsPort": 8889,
+  "config": {
+    "WP_DEBUG": true,
+    "WP_DEBUG_DISPLAY": true,
+    "SCRIPT_DEBUG": true,
+    "WP_DEVELOPMENT_MODE": "theme"
+  },
+  "testsEnvironment": false,
+  "mappings": {
+    "wp-content/acs-content": "./content"
+  }
+}

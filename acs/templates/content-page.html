@@ -1,0 +1,26 @@
+<!--
+  COMPOSED PAGE.
+
+  The role, industry, legal and directory templates each carry a fixed structure
+  and take one page's worth of prose through post-content. This one carries no
+  structure at all: the page composes its own sections, exactly as the home page
+  does, and they come out of post-content.
+
+  ⚠ THAT IS DELIBERATE AND IT IS ABOUT WHO OWNS THE COPY. Marketing writes 41
+  pages into this theme over nine days. A section composed inside a TEMPLATE is
+  edited in the site editor, where an error breaks every page using it; the same
+  section composed inside a PAGE is edited in the page editor, where it cannot.
+  The home page predates this template and still lives in front-page.html.
+
+  ⚠ There is no post-title here. These pages open with a section label and a
+  heading of their own, and a title block above that would print the name twice.
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group">
+  <!-- wp:post-content {"layout":{"type":"default"}} /-->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->

@@ -1,0 +1,37 @@
+<!--
+  THE CORE DISTINCTION, shared by every staff (role) page. ONE definition: edit
+  it here and all eight role pages change. The proposal requires it on the
+  homepage and every staff page. Included by acs/templates/role.html and by each
+  composed role page (content/<role>.html) as a template part.
+-->
+  <!-- THE CORE DISTINCTION -->
+  <!-- wp:group {"backgroundColor":"field","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+  <div class="wp-block-group has-field-background-color has-background" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60)">
+    <!-- wp:heading {"level":2,"fontSize":"x-large","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
+    <h2 class="wp-block-heading has-x-large-font-size" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40)">A managed service, not staff supply</h2>
+    <!-- /wp:heading -->
+    <!-- wp:html -->
+    <table class="acs-compare">
+      <thead>
+        <tr><th></th><th>Freelancer sites</th><th>Traditional BPO</th><th class="acs-compare__acs">ACS</th></tr>
+      </thead>
+      <tbody>
+        <tr><th scope="row">Who they work for</th><td data-col="Freelancer sites">You and several other clients</td><td data-col="Traditional BPO">The provider's process</td><td class="acs-compare__acs" data-col="ACS">You only, full time</td></tr>
+        <!--
+          ⚠ ENGAGEMENT MODEL CORRECTED PER CHRIS, 2026-08-24 ("ACS website").
+          The old rows claimed "a licensed employer of record" and "compliance
+          and payroll" — an employment relationship that does not exist. His
+          instruction: base the comparison on screening, administration,
+          continuity and ACS oversight, not employment. The engagement
+          disclosure lives on the engagement page, once, not here.
+        -->
+        <tr><th scope="row">Who screens them</th><td data-col="Freelancer sites">You do, from profiles</td><td data-col="Traditional BPO">The provider's generic process</td><td class="acs-compare__acs" data-col="ACS">Assessed and shortlisted by our staffing provider; you interview and choose</td></tr>
+        <tr><th scope="row">Payments and administration</th><td data-col="Freelancer sites">Your problem</td><td data-col="Traditional BPO">Bundled and opaque</td><td class="acs-compare__acs" data-col="ACS">Handled by our staffing provider</td></tr>
+        <tr><th scope="row">Who sets the standards</th><td data-col="Freelancer sites">Nobody</td><td data-col="Traditional BPO">The provider</td><td class="acs-compare__acs" data-col="ACS">ACS, with you</td></tr>
+        <tr><th scope="row">Who you call here</th><td data-col="Freelancer sites">Nobody</td><td data-col="Traditional BPO">An account queue</td><td class="acs-compare__acs" data-col="ACS">Your named ACS contact</td></tr>
+        <tr><th scope="row">If it does not work</th><td data-col="Freelancer sites">Start the search again</td><td data-col="Traditional BPO">Raise a ticket</td><td class="acs-compare__acs" data-col="ACS">Replacement support under the service agreement</td></tr>
+      </tbody>
+    </table>
+    <!-- /wp:html -->
+  </div>
+  <!-- /wp:group -->

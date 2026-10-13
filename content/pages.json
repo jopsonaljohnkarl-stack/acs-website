@@ -1,0 +1,604 @@
+[
+ {
+  "slug": "home",
+  "title": "Home",
+  "template": "",
+  "parent": "",
+  "menu_order": 0,
+  "front": true,
+  "description": "Offshore team members for Australian businesses, with an Australian management layer that designs the role, sets the standards and stays involved after placement."
+ },
+ {
+  "slug": "staff",
+  "title": "Staff You Can Hire",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Dedicated offshore team members for telesales, admin, finance, operations and more. See every role ACS places for Australian businesses."
+ },
+ {
+  "slug": "who-we-help",
+  "title": "Who We Help",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Fourteen industries ACS supports with offshore team members, and the specific administrative load in each one."
+ },
+ {
+  "slug": "bookkeepers",
+  "title": "Bookkeepers",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Reconciliations, payables and the month that has to close on time, done by somebody whose whole job it is rather than by you at the end of a long day.",
+  "description": "Hire an offshore bookkeeper to keep your books current and reconciled, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "admin-assistants",
+  "title": "Admin assistants",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "The scheduling, the paperwork and the phone that will not stop while you are on a job.",
+  "description": "Hire an offshore admin assistant for email, documents and customer admin, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "operations-assistants",
+  "title": "Operations assistants",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Job sheets, rosters, supplier chasing and the coordination that keeps a week from slipping.",
+  "description": "Hire an offshore operations assistant to handle scheduling, coordination and day to day admin, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "telesales",
+  "title": "Telesales",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Outbound calling, qualification and follow-up, working to your script and your standards.",
+  "description": "Hire an offshore telesales team member for CSR, appointment setting, or inbound and outbound sales calls, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "security-and-facilities",
+  "title": "Security & facilities",
+  "template": "industry",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Rosters, incident paperwork and the client reporting that has to go out whatever else happened that week.",
+  "description": "Dedicated offshore staff for rostering, compliance admin and client reporting. Australian managed. Running commercial services since 2008.",
+  "status": "draft"
+ },
+ {
+  "slug": "trades-field-service",
+  "title": "Trades & Field Service",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Missed calls, quoting backlog, scheduling and invoicing.",
+  "description": "Offshore team members for trades and field service businesses. Call answering, quoting, scheduling and invoicing, Australian managed."
+ },
+ {
+  "slug": "accounting-firms",
+  "title": "Accounting & bookkeeping",
+  "template": "industry",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Processing volume, seasonal peaks and client correspondence.",
+  "description": "Offshore staff for Australian accounting firms. Processing work and capacity during the crunch, without competing for scarce local hires."
+ },
+ {
+  "slug": "privacy-policy",
+  "title": "Privacy policy",
+  "template": "legal",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "How ACS collects, uses, stores and protects personal information, and how to contact us about the information we hold."
+ },
+ {
+  "slug": "how-it-works",
+  "title": "How It Works",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "From first call to a working offshore team member. The five steps, what you do, what we do, and what each stage asks of your time."
+ },
+ {
+  "slug": "what-is-included",
+  "title": "What Is Included",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Exactly what is covered by the monthly fee for an ACS offshore team member. Sourcing, screening, onboarding, administration and ongoing oversight."
+ },
+ {
+  "slug": "build-your-team",
+  "title": "Build your team",
+  "template": "build-your-team",
+  "parent": "pricing",
+  "menu_order": 0,
+  "front": false,
+  "description": "Use the calculator to select the roles, seniority and hours you need and see an indicative price range instantly. No account required, no fixed rate card."
+ },
+ {
+  "slug": "contact",
+  "title": "Contact",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Contact details and a general enquiry form for ACS, an Australian offshore staffing business."
+ },
+ {
+  "slug": "get-a-quote",
+  "title": "Get a Quote",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Tell us what you need and get a scoped price for your offshore team member, confirmed by a person, not an automated engine."
+ },
+ {
+  "slug": "book-a-call",
+  "title": "Book a Call",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Book a short, no obligation call to scope your offshore staffing needs with ACS."
+ },
+ {
+  "slug": "thank-you",
+  "title": "Thank You",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Not indexed. Confirmation page shown after a form submission."
+ },
+ {
+  "slug": "accounting-finance",
+  "title": "Accounting & finance",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Reporting, compliance preparation and the finance work a bookkeeper hands upward.",
+  "description": "Hire an offshore accounting and finance team member for payables, receivables and reconciliations, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "operations-managers",
+  "title": "Operations managers",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Owning a workflow and the people in it, with exceptions handled before they reach you.",
+  "description": "Hire an offshore operations manager to own workflow, reporting and process, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "social-media-managers",
+  "title": "Social media managers",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Scheduling, community response and the consistency a business rarely keeps up alone.",
+  "description": "Hire an offshore social media manager for content planning, scheduling and reporting, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "ai-automation-specialists",
+  "title": "AI & automation specialists",
+  "template": "content-page",
+  "parent": "staff",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Connecting the systems you already pay for so the same information stops being entered twice.",
+  "description": "Hire an offshore AI and automation specialist to build the tools that remove manual work, dedicated to your business and Australian managed."
+ },
+ {
+  "slug": "real-estate-property",
+  "title": "Real Estate & Property",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Listings, applications, lead follow up and property admin.",
+  "description": "Offshore team members for real estate and property businesses. Listings, applications, lead follow up and property admin, Australian managed."
+ },
+ {
+  "slug": "small-business",
+  "title": "Small business",
+  "template": "industry",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "The back office nobody was hired to run and everybody ends up doing after hours.",
+  "description": "Offshore staff for Australian small businesses. The work that lands on the founder by default, moved to somebody whose job it actually is.",
+  "status": "draft"
+ },
+ {
+  "slug": "terms",
+  "title": "Terms",
+  "template": "legal",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "The terms that apply to the use of this website, and how they relate to the service agreement governing an ACS engagement."
+ },
+ {
+  "slug": "cookies",
+  "title": "Cookies",
+  "template": "legal",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "The cookies this website uses, what each one is for, and how to control them in your browser."
+ },
+ {
+  "slug": "pricing-disclaimer",
+  "title": "Pricing disclaimer",
+  "template": "legal",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Why no pricing figure is published on this site, what pricing on application means in practice, and how a quote is arrived at."
+ },
+ {
+  "slug": "candidate-privacy",
+  "title": "Candidate Privacy Notice",
+  "template": "legal",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "How ACS handles candidate information, kept behind a separate data boundary from client records, and how to ask about the information we hold."
+ },
+ {
+  "slug": "work-with-us",
+  "title": "Work With Us",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Interested in working with ACS? See current opportunities and how to apply."
+ },
+ {
+  "slug": "managed-service-vs-freelancers",
+  "title": "Managed Service vs Freelancers",
+  "template": "content-page",
+  "parent": "how-it-works",
+  "menu_order": 0,
+  "front": false,
+  "description": "The practical difference between hiring an offshore freelancer, using a BPO, and running a managed offshore service. What each option costs you in time and risk."
+ },
+ {
+  "slug": "who-employs-your-staff",
+  "title": "How Your Offshore Team Member Is Engaged and Supported",
+  "template": "content-page",
+  "parent": "how-it-works",
+  "menu_order": 0,
+  "front": false,
+  "description": "How your offshore team member is engaged and supported: who holds what between ACS and our staffing provider, and why you are not a party to it."
+ },
+ {
+  "slug": "how-we-screen-and-hire",
+  "title": "How We Screen and Hire",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "The screening process behind every ACS offshore team member. Skills testing, English assessment, scorecards and how you make the final decision."
+ },
+ {
+  "slug": "onboarding-first-90-days",
+  "title": "Onboarding & First 90 Days",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "How offshore staff onboarding works with ACS, from system access on day one through to full ownership by day ninety."
+ },
+ {
+  "slug": "performance-reporting",
+  "title": "Performance & Reporting",
+  "template": "content-page",
+  "parent": "how-it-works",
+  "menu_order": 0,
+  "front": false,
+  "description": "How performance is measured, reported and managed for your offshore team member, with ACS holding oversight and your delivery partner holding employment."
+ },
+ {
+  "slug": "our-story",
+  "title": "Our Story",
+  "template": "content-page",
+  "parent": "why-acs",
+  "menu_order": 0,
+  "front": false,
+  "description": "How ACS went from running Australian commercial services to building offshore teams for the businesses who understand that work best."
+ },
+ {
+  "slug": "why-acs",
+  "title": "Why ACS",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Why Australian businesses choose ACS for offshore staffing: operating history since 2008, an Australian team, and accountability that does not stop at placement."
+ },
+ {
+  "slug": "your-australian-team",
+  "title": "Your Australian Team",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "The Australian team behind your offshore engagement: who scopes your role, who manages performance, and who you actually call when something needs attention."
+ },
+ {
+  "slug": "faqs",
+  "title": "FAQs",
+  "template": "content-page",
+  "parent": "how-it-works",
+  "menu_order": 0,
+  "front": false,
+  "description": "Answers to the questions Australian businesses ask most about offshore staffing with ACS, covering engagement, pricing, screening, performance and getting started."
+ },
+ {
+  "slug": "pricing",
+  "title": "Pricing",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "How ACS prices an offshore team member, and how the calculator gives you an indicative range in seconds based on the role, seniority and hours you need."
+ },
+ {
+  "slug": "data-security-and-privacy",
+  "title": "Data Security & Privacy",
+  "template": "content-page",
+  "parent": "how-it-works",
+  "menu_order": 0,
+  "front": false,
+  "description": "How ACS controls access, devices and confidentiality for offshore team members working with your business data."
+ },
+ {
+  "slug": "how-your-team-is-supported",
+  "title": "How Your Team Is Supported",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "The standards, equipment and structure behind your offshore team member's working environment, without unnecessary detail that does not affect the quality of their work."
+ },
+ {
+  "slug": "construction-engineering",
+  "title": "Construction & Engineering",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Project coordination, reporting and compliance administration.",
+  "description": "Offshore team members for construction and engineering businesses. Project coordination, reporting and compliance administration, Australian managed."
+ },
+ {
+  "slug": "healthcare-allied-health",
+  "title": "Healthcare & Allied Health",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Bookings, records, billing and patient correspondence.",
+  "description": "Offshore team members for healthcare and allied health practices. Bookings, records administration and patient correspondence, Australian managed."
+ },
+ {
+  "slug": "ndis-disability",
+  "title": "NDIS & Disability",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Participant administration, rostering support and reporting.",
+  "description": "Offshore team members for NDIS and disability service providers. Participant administration, rostering support and reporting, Australian managed."
+ },
+ {
+  "slug": "retail-ecommerce",
+  "title": "Retail & E-commerce",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Order processing, listings, returns and customer enquiries.",
+  "description": "Offshore team members for retail and ecommerce businesses. Order processing, listings, returns and customer enquiries, Australian managed."
+ },
+ {
+  "slug": "marketing-creative",
+  "title": "Marketing & Creative",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Production workload, scheduling and client reporting.",
+  "description": "Offshore team members for marketing and creative agencies. Production workload, scheduling and client reporting, Australian managed."
+ },
+ {
+  "slug": "legal-professional",
+  "title": "Legal & Professional",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Document preparation, billing and matter administration.",
+  "description": "Offshore team members for legal and professional services firms. Document preparation, billing and matter administration, Australian managed."
+ },
+ {
+  "slug": "it-software",
+  "title": "IT & Software",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Support triage, documentation and account administration.",
+  "description": "Offshore team members for IT and software businesses. Support triage, documentation and account administration, Australian managed."
+ },
+ {
+  "slug": "transport-logistics",
+  "title": "Transport & Logistics",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Bookings, tracking, documentation and customer updates.",
+  "description": "Offshore team members for transport and logistics businesses. Bookings, tracking, documentation and customer updates, Australian managed."
+ },
+ {
+  "slug": "insurance-brokers",
+  "title": "Insurance & Brokers",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Application processing, follow up and file preparation.",
+  "description": "Offshore team members for insurance and finance broking businesses. Application processing, follow up and file preparation, Australian managed."
+ },
+ {
+  "slug": "hospitality-tourism",
+  "title": "Hospitality & Tourism",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Reservations, supplier admin and customer correspondence.",
+  "description": "Offshore team members for hospitality and tourism businesses. Reservations, supplier admin and customer correspondence, Australian managed."
+ },
+ {
+  "slug": "manufacturing-wholesale",
+  "title": "Manufacturing & Wholesale",
+  "template": "content-page",
+  "parent": "who-we-help",
+  "menu_order": 0,
+  "front": false,
+  "excerpt": "Order processing, purchasing admin and reporting.",
+  "description": "Offshore team members for manufacturing and wholesale businesses. Order processing, purchasing admin and reporting, Australian managed."
+ },
+ {
+  "slug": "results",
+  "title": "Results",
+  "template": "content-page",
+  "parent": "why-acs",
+  "menu_order": 0,
+  "front": false,
+  "description": "Real client results from ACS offshore staffing engagements, published only with the client's written permission. See how results are verified before they appear here."
+ },
+ {
+  "slug": "resources",
+  "title": "Resources",
+  "template": "blog-index",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Guides, checklists and position descriptions for Australian businesses considering an offshore team member."
+ },
+ {
+  "slug": "guides",
+  "title": "Guides",
+  "template": "resource-category",
+  "parent": "resources",
+  "menu_order": 0,
+  "front": false,
+  "description": "Practical guides on offshore staffing for Australian businesses, from scoping a role to the first ninety days."
+ },
+ {
+  "slug": "role-suitability-checklist",
+  "title": "Role suitability checklists",
+  "template": "resource-category",
+  "parent": "resources",
+  "menu_order": 0,
+  "front": false,
+  "description": "A practical checklist for deciding whether a task suits an offshore team member before you brief anyone."
+ },
+ {
+  "slug": "position-descriptions",
+  "title": "Position descriptions",
+  "template": "resource-category",
+  "parent": "resources",
+  "menu_order": 0,
+  "front": false,
+  "description": "Position descriptions for the roles ACS staffs, describing the actual day-to-day work rather than a title."
+ },
+ {
+  "slug": "vacancies",
+  "title": "Vacancies",
+  "template": "vacancies-index",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Current openings with ACS. The candidate journey is specified separately from the client site."
+ },
+ {
+  "slug": "template-preview",
+  "title": "Template previews",
+  "template": "content-page",
+  "parent": "",
+  "menu_order": 0,
+  "front": false,
+  "description": "Internal review page for the blog and vacancy layouts. Not linked from the site and removed before launch."
+ },
+ {
+  "slug": "blog",
+  "title": "Resources",
+  "template": "blog-index",
+  "parent": "template-preview",
+  "menu_order": 0,
+  "front": false,
+  "description": "Template preview of the Resources hub, with sample articles. Not linked from the site."
+ },
+ {
+  "slug": "vacancies-list",
+  "title": "Vacancies",
+  "template": "vacancies-index",
+  "parent": "template-preview",
+  "menu_order": 0,
+  "front": false,
+  "description": "Template preview of the vacancies index, with a sample role. Not linked from the site."
+ },
+ {
+  "slug": "preview-guides",
+  "title": "Guides",
+  "template": "resource-category",
+  "parent": "template-preview",
+  "menu_order": 0,
+  "front": false,
+  "description": "Template preview of the Guides category page, with sample articles. Not linked from the site."
+ },
+ {
+  "slug": "preview-role-suitability-checklist",
+  "title": "Role suitability checklists",
+  "template": "resource-category",
+  "parent": "template-preview",
+  "menu_order": 0,
+  "front": false,
+  "description": "Template preview of the Role suitability checklists category page, with sample articles. Not linked from the site."
+ },
+ {
+  "slug": "preview-position-descriptions",
+  "title": "Position descriptions",
+  "template": "resource-category",
+  "parent": "template-preview",
+  "menu_order": 0,
+  "front": false,
+  "description": "Template preview of the Position descriptions category page, with sample articles. Not linked from the site."
+ }
+]

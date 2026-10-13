@@ -1,0 +1,179 @@
+<!--
+  BUILD YOUR TEAM. The cost calculator (top) and the configurator (below),
+  which doubles as the lead qualifier.
+
+  History: the page ORIGINALLY replaced a cost calculator because Dan ruled
+  out published pricing (08-13). Chris AMENDED that on 2026-08-27 ("ACS
+  Website" thread): estimate costs first, then book a call or request a
+  quote. The calculator here is the PLACEHOLDER STRUCTURE for that request.
+
+  ⚠ NO FIGURE APPEARS ANYWHERE IN IT, still. Figures need three things in
+  writing: Chris's role-by-level table, named sign-off on the register's
+  pricing rows, and confirmation the 08-13 direction is superseded. See
+  assets/js/calculator.js.
+  ⚠ Not wired. The enquiry contract lives in automations/acs-lead-capture;
+  the calculator's quote CTA pre-fills the configurator, nothing more.
+
+  COPY: "Build Your Team v2.docx" (Pricing Page Revision 2, 21 August 2026, Drive
+  1cM9R87MQCzSrljeDGg3fJ2gLMBotqVHq), applied 1 October 2026 by compose-pricing.py
+  ON JOHN JOPSON'S DECISION of 1 October 2026. CHRIS BANKS HAS NOT BEEN ASKED.
+  The calculator and configurator blocks are carried over byte for byte;
+  only id="calculator" was added (the hero's "Skip to the calculator").
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained","contentSize":"78rem"}} -->
+<main class="wp-block-group" style="padding-top:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--80)">
+<!-- wp:columns {"verticalAlignment": "center", "style": {"spacing": {"blockGap": {"top": "var:preset|spacing|50", "left": "var:preset|spacing|70"}}}} -->
+<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment": "center", "width": "58%"} -->
+<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:58%"><!-- wp:paragraph {"fontFamily":"code","fontSize":"x-small","textColor":"structure-bright","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}}} -->
+<p class="has-structure-bright-color has-text-color has-code-font-family has-x-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Pricing</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"fontSize":"xx-large","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
+<h1 class="wp-block-heading has-xx-large-font-size" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40)">Calculate the cost of your offshore team</h1>
+<!-- /wp:heading -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"is-measure","fontSize":"large"} -->
+<p class="is-measure has-large-font-size">Use the calculator below to build your offshore team and see an indicative price range instantly. No account needed, and no obligation either.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:button {"backgroundColor":"ink","textColor":"paper"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-paper-color has-ink-background-color has-text-color has-background wp-element-button" href="#calculator">Skip to the calculator</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:column -->
+<!-- wp:column {"verticalAlignment": "center"} -->
+<div class="wp-block-column is-vertically-aligned-center"><!-- wp:html -->
+<!-- PHOTOGRAPH janet-build-your-team-1.jpg: Janet Biag, page-named 4:5 set uploaded 2 Oct 2026, 1080x1350. See PHOTOGRAPHY.md. -->
+<figure class="acs-shot"><div class="acs-shot__frame" style="aspect-ratio:4/5"><img src="/wp-content/themes/acs/assets/img/janet-build-your-team-1.jpg" alt="" width="1080" height="1350" loading="eager" fetchpriority="high" decoding="async"></div></figure>
+<!-- /wp:html --></div>
+<!-- /wp:column -->
+</div>
+<!-- /wp:columns -->
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|30"}}}} -->
+<h2 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--30)">Select what you need and see a range in seconds</h2>
+<!-- /wp:heading -->
+  <!-- wp:html -->
+  <div class="acs-calc-wrap" id="calculator">
+    <p class="acs-calc__disclaimer">An estimate only, in Australian dollars, to support planning and comparison. It is not a quote; every engagement is priced against its specification.</p>
+    <div class="acs-calc" data-acs-calculator>
+      <div class="acs-calc__inputs">
+        <div class="acs-field">
+          <label class="acs-field__label" for="acs-calc-role">Role</label>
+          <select id="acs-calc-role" class="acs-calc__select" data-acs-calc-roles></select>
+        </div>
+        <div class="acs-field">
+          <span class="acs-field__label">Level</span>
+          <div class="acs-choices" data-acs-calc-levels></div>
+        </div>
+        <div class="acs-field">
+          <span class="acs-field__label">Team size</span>
+          <div class="acs-calc__counter">
+            <button type="button" data-acs-calc-less aria-label="Fewer team members">&minus;</button>
+            <span class="acs-calc__count" data-acs-calc-team aria-live="polite"></span>
+            <button type="button" data-acs-calc-more aria-label="More team members">+</button>
+          </div>
+          <p class="acs-calc__counter-note">Full-time team members. Full time is the standard engagement. Part time is available on selected roles, by discussion &mdash; use the custom quote below.</p>
+        </div>
+      </div>
+      <div class="acs-calc__panel" aria-live="polite">
+        <p class="acs-calc__eyebrow">Estimated investment</p>
+        <div class="acs-calc__stat acs-calc__stat--lead">
+          <p class="acs-calc__stat-label">Monthly cost</p>
+          <div data-acs-calc-monthly></div>
+        </div>
+        <div class="acs-calc__stat">
+          <p class="acs-calc__stat-label">Approximate hourly rate</p>
+          <div data-acs-calc-hourly></div>
+        </div>
+        <div class="acs-calc__stat">
+          <p class="acs-calc__stat-label">Local cost comparison</p>
+          <div data-acs-calc-compare></div>
+        </div>
+        <div class="acs-calc__summary-block">
+          <p class="acs-calc__eyebrow">Summary</p>
+          <div data-acs-calc-panel></div>
+        </div>
+        <div class="acs-calc__actions">
+          <button type="button" class="wp-element-button" data-acs-calc-quote>Get a custom quote</button>
+          <a class="acs-calc__call" href="/book-a-call/">Book a call</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /wp:html -->
+  <!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|30"}}}} -->
+  <h2 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--30)">Build the full specification</h2>
+  <!-- /wp:heading -->
+
+  <!-- wp:html -->
+  <div class="acs-byt" data-acs-configurator>
+    <div data-acs-live style="display:contents">
+      <div class="acs-byt__ask">
+        <div data-acs-step></div>
+        <div class="acs-byt__controls">
+          <span class="acs-byt__progress" data-acs-progress aria-live="polite">Step 1 of 5</span>
+          <button type="button" data-acs-back>Back</button>
+          <button type="button" class="wp-element-button" data-acs-next>Continue</button>
+        </div>
+      </div>
+      <div class="acs-byt__spec">
+        <p class="acs-spec__title">Your specification</p>
+        <div class="acs-spec" data-acs-spec aria-live="polite"></div>
+        <p class="acs-spec__note">Pricing is provided on application, based on the position and level required. No figure is published anywhere on this site.</p>
+      </div>
+    </div>
+    <div class="acs-byt__sent" data-acs-sent hidden>
+      <h2 class="acs-step__title">PLACEHOLDER — specification received</h2>
+      <p>Nothing was actually sent. This tool is not wired to anything yet, and the response standard cannot be published until a named enquiry owner exists.</p>
+    </div>
+  </div>
+  <!-- /wp:html -->
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|30"}}}} -->
+<h2 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--30)">Your range is a starting point, not your final price</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"is-measure"} -->
+<p class="is-measure">The calculator gives you an indicative range based on the role, seniority and hours you select. It is built to be useful within seconds, not to replace a proper scoping conversation.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"is-measure"} -->
+<p class="is-measure">Once you submit, your requirements go to the ACS team, not into an automated pricing engine for a final number. You will hear back with an exact scoped price for the role you described, along with everything included.</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:group -->
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|30"}}}} -->
+<h2 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--30)">A range reflects your role. A rate card would not</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"is-measure"} -->
+<p class="is-measure">Every engagement is scoped to the specific role: what the person actually does, their seniority, and whether it is full time or part time. A single published number would either be too vague to mean anything or too specific to match your situation.</p>
+<!-- /wp:paragraph -->
+<!-- wp:paragraph {"className":"is-measure"} -->
+<p class="is-measure">The calculator solves this differently to a rate card. It reflects the inputs you actually give it, so the range you see is closer to reality than a generic number would ever be.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/what-is-included/">See what is included in the fee</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+<!-- wp:heading {"level":2,"style":{"spacing":{"margin":{"top":"var:preset|spacing|70","bottom":"var:preset|spacing|30"}}}} -->
+<h2 class="wp-block-heading" style="margin-top:var(--wp--preset--spacing--70);margin-bottom:var(--wp--preset--spacing--30)">Prefer to talk it through first</h2>
+<!-- /wp:heading -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"is-measure"} -->
+<p class="is-measure">Some people would rather have a conversation before touching a calculator. That is a completely reasonable way to start, and it gets you the same outcome.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/book-a-call/">Book a call instead</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
