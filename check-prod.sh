@@ -141,6 +141,7 @@ PATTERNS = [
     ("LEGAL DRAFT", r"LEGAL DRAFT"),
     ("review banner", r"acs-review-banner|INTERNAL REVIEW COPY"),
     ("[Confirm ...] / to-be-confirmed note", r"\[(?:Confirm|Solicitor to confirm)[^\]]*\]|to be confirmed\]"),
+    ("legal date placeholder", r"\[DD Month YYYY\]"),
     ("noindex", r"<meta[^>]+name=['\"]robots['\"][^>]+noindex"),
 ]
 if not LOCAL:

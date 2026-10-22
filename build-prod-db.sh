@@ -15,6 +15,8 @@
 #      comment (old draft copy, local cache, WordPress cruft)
 #   5. permalinks -> /resources/%postname%/, rewrite flush
 #   6. blog_public = 0  (search visibility OFF; turned on at cutover, not before)
+#      6b. option acs_legal_updated created (empty unless ACS_LEGAL_DATE="23 October 2026"
+#      is set in the environment): the legal pages' one "Last updated" setting
 #   7. search-replace http://localhost:8888 -> the URL given (plain, JSON-escaped
 #      and scheme-less forms; serialized data handled by WP-CLI)
 #   8. exports .prod-build/acs-prod-<ts>.sql WITHOUT wp_users / wp_usermeta
@@ -161,6 +163,9 @@ wpc rewrite flush >/dev/null
 echo "6. search visibility off"
 wpc option update blog_public 0 >/dev/null
 
+echo "6b. legal pages' Last updated date: acs_legal_updated = '${ACS_LEGAL_DATE:-}' (empty = placeholder; set on launch day)"
+wpc option update acs_legal_updated "${ACS_LEGAL_DATE:-}" >/dev/null
+
 echo "7. search-replace $LOCAL_URL -> $URL"
 HOSTONLY="${URL#https://}"
 for pair in \
@@ -184,6 +189,7 @@ for pat in 'localhost' '127\.0\.0\.1' '_acs_sample' 'template-preview' "CREATE T
   if [ "$n" != "0" ]; then echo "    FAIL  '$pat' found on $n line(s)"; bad=1; else echo "    ok    no '$pat'"; fi
 done
 n="$(grep -c "INSERT INTO \`${PREFIX}comments\`" "$OUT_DIR/$DUMP" || true)"; [ "$n" = "0" ] && echo "    ok    no comments" || { echo "    FAIL  comments in the dump"; bad=1; }
+grep -q "'acs_legal_updated'," "$OUT_DIR/$DUMP" && echo "    ok    acs_legal_updated option present (launch-day date setting)" || { echo "    FAIL  acs_legal_updated option missing"; bad=1; }
 grep -q "'blog_public','0'" "$OUT_DIR/$DUMP" && echo "    ok    blog_public = 0" || { echo "    FAIL  blog_public is not 0 in the dump"; bad=1; }
 grep -q "'permalink_structure','/resources/%postname%/'" "$OUT_DIR/$DUMP" && echo "    ok    permalinks /resources/%postname%/" || { echo "    FAIL  permalink_structure not set"; bad=1; }
 grep -q "'siteurl','$URL'" "$OUT_DIR/$DUMP" && echo "    ok    siteurl = $URL" || { echo "    FAIL  siteurl is not $URL"; bad=1; }

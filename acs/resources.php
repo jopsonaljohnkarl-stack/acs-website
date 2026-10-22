@@ -658,6 +658,25 @@ add_filter(
 	}
 );
 
+/*
+ * Legal pages' "Last updated" date: ONE setting for all five pages, the option
+ * acs_legal_updated (e.g. "23 October 2026"). Empty = the [DD Month YYYY]
+ * placeholder stays (and check-prod.sh fails on it). Set it on launch day only,
+ * once Dan has decided to publish the legal wording (GO-LIVE.md, launch day).
+ * build-prod-db.sh creates the option empty so it is editable on production
+ * (phpMyAdmin or /wp-admin/options.php) without WP-CLI.
+ */
+add_filter(
+	'render_block_core/paragraph',
+	function ( $html ) {
+		if ( false === strpos( $html, 'acs-legal__updated' ) ) {
+			return $html;
+		}
+		$date = trim( (string) get_option( 'acs_legal_updated', '' ) );
+		return '' === $date ? $html : str_replace( '[DD Month YYYY]', esc_html( $date ), $html );
+	}
+);
+
 /* Bracketed placeholders in a legal page's paragraphs and lists show as amber highlights, as on her board. */
 foreach ( array( 'core/paragraph', 'core/list' ) as $acs_legal_block ) {
 	add_filter(

@@ -767,3 +767,21 @@ add_filter(
 
 // Resources (the blog): Janet's hub, category and article layouts, 2 Oct 2026.
 require_once get_theme_file_path( 'resources.php' );
+
+/*
+ * Editor notes never reach the public page source (22 Oct 2026, pre-launch).
+ * Templates, parts and page content carry prose HTML comments for the build
+ * team (approval records, names, internal channels). Block delimiters are
+ * parsed away before this runs, so what is left in rendered HTML is only those
+ * notes; they are stripped here. Conditional comments ("<!--[if") are kept.
+ */
+add_filter(
+	'render_block',
+	function ( $html ) {
+		if ( ! is_string( $html ) || false === strpos( $html, '<!--' ) ) {
+			return $html;
+		}
+		return preg_replace( '/<!--(?!\s*\[if).*?-->/s', '', $html );
+	},
+	PHP_INT_MAX
+);
