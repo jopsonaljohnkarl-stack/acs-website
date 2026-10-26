@@ -739,8 +739,16 @@ add_filter(
 		}
 		/* The staffing provider's address (Upload your CV, Register your interest). */
 		if ( false !== strpos( $content, 'data-acs-provider-link' ) ) {
-			$url     = get_option( 'acs_provider_url', '' );
-			$content = str_replace( 'data-acs-provider-link href="#"', 'data-acs-provider-link href="' . esc_url( $url ? $url : '#' ) . '"' . ( $url ? ' target="_blank" rel="noopener"' : '' ), $content );
+			// 26 Oct 2026 (Janet, #team-powepuff 4:34pm): the provider link is OFF
+			// until Tyrone supplies the Google Form address; the button renders as
+			// plain text, no dead "#" link. Flip ACS_PROVIDER_LINK_ON to true and set
+			// the acs_provider_url option when the form address arrives.
+			$url = ACS_PROVIDER_LINK_ON ? get_option( 'acs_provider_url', '' ) : '';
+			if ( $url ) {
+				$content = str_replace( 'data-acs-provider-link href="#"', 'data-acs-provider-link href="' . esc_url( $url ) . '" target="_blank" rel="noopener"', $content );
+			} else {
+				$content = preg_replace( '#<a class="acs-wwu-btn" data-acs-provider-link href="\#">(.*?)</a>#', '<span class="acs-wwu-btn is-off">Applications open soon</span>', $content );
+			}
 		}
 		if ( false === strpos( $content, 'data-acs-vacancies' ) ) {
 			return $content;
@@ -896,4 +904,43 @@ add_filter(
 
 		return '' !== $custom ? $custom : $title;
 	}
+);
+
+/*
+ * Pages kept out of search on purpose (26 Oct 2026, Janet: hiring is not a
+ * priority, "i-no index nalang natin"). By slug so it survives content reloads:
+ * <meta name="robots" content="noindex, nofollow"> on these pages, and they
+ * leave the sitemap. Add a slug here when Janet names another one.
+ */
+const ACS_PROVIDER_LINK_ON = false;
+function acs_noindex_slugs(): array {
+	return array( 'work-with-us' );
+}
+add_filter(
+	'wp_robots',
+	static function ( array $robots ): array {
+		if ( is_singular( 'page' ) && in_array( get_post_field( 'post_name', get_queried_object_id() ), acs_noindex_slugs(), true ) ) {
+			$robots['noindex']  = true;
+			$robots['nofollow'] = true;
+			unset( $robots['max-image-preview'] );
+		}
+		return $robots;
+	}
+);
+add_filter(
+	'wp_sitemaps_posts_query_args',
+	static function ( array $args, string $post_type ): array {
+		if ( 'page' !== $post_type ) {
+			return $args;
+		}
+		foreach ( acs_noindex_slugs() as $slug ) {
+			$page = get_page_by_path( $slug );
+			if ( $page ) {
+				$args['post__not_in'] = array_merge( $args['post__not_in'] ?? array(), array( $page->ID ) );
+			}
+		}
+		return $args;
+	},
+	10,
+	2
 );
