@@ -212,6 +212,18 @@ foreach ( array( 'create', 'link' ) as $pass ) {
 			}
 			$description_changed = true;
 		}
+		// Title tag (26 Oct 2026): Janet's launch-day QA set a custom <title> on
+		// every page through the wp-admin box; `meta_title` in pages.json is that
+		// record, so a reseed keeps it. Empty = the default "Page – Site name".
+		$meta_title         = isset( $entry['meta_title'] ) ? trim( (string) $entry['meta_title'] ) : '';
+		$current_meta_title = (string) get_post_meta( $id, '_acs_meta_title', true );
+		if ( $current_meta_title !== $meta_title ) {
+			if ( '' === $meta_title ) {
+				delete_post_meta( $id, '_acs_meta_title' );
+			} else {
+				update_post_meta( $id, '_acs_meta_title', $meta_title );
+			}
+		}
 
 		$current_template = get_post_meta( $id, '_wp_page_template', true );
 		$template_changed = false;

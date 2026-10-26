@@ -30,7 +30,7 @@
 function acs_res_cats() {
 	return array(
 		'guides'                     => array(
-			'hero'       => 'janet-guides-1.jpg',
+			'hero'       => 'offshoring-in-australia-guides-1.jpg',
 			'name'       => 'Guides',
 			'pill'       => 'Guide',
 			'kind'       => 'guide',
@@ -42,7 +42,7 @@ function acs_res_cats() {
 			'noun'       => array( 'guide', 'guides' ),
 		),
 		'role-suitability-checklist' => array(
-			'hero'       => 'janet-role-suitability-checklist-1.jpg',
+			'hero'       => 'offshoring-in-australia-role-suitability-checklist-1.jpg',
 			'name'       => 'Role suitability checklists',
 			'pill'       => 'Checklist',
 			'kind'       => 'check',
@@ -54,7 +54,7 @@ function acs_res_cats() {
 			'noun'       => array( 'checklist', 'checklists' ),
 		),
 		'position-descriptions'      => array(
-			'hero'       => 'janet-position-descriptions-1.jpg',
+			'hero'       => 'offshoring-in-australia-position-descriptions-1.jpg',
 			'name'       => 'Position descriptions',
 			'pill'       => 'Position description',
 			'kind'       => 'pd',
@@ -240,7 +240,7 @@ function acs_res_hub() {
 		$feat = $posts[0];
 	}
 
-	$out = '<section class="acs-res-hero acs-res-hero--hub acs-res-hero--photo">' . acs_res_hero_photo( 'janet-resources-1.jpg' )
+	$out = '<section class="acs-res-hero acs-res-hero--hub acs-res-hero--photo">' . acs_res_hero_photo( 'offshoring-in-australia-resources-1.jpg' )
 		. '<div class="acs-res-hero__inner"><span class="acs-res-eyebrow">Resources</span>'
 		. '<h1>Guides and tools for planning an offshore team member</h1>'
 		. '<p class="acs-res-lead">Practical guides, role suitability checklists and position descriptions for Australian businesses working out which work to hand over, and how.</p>'

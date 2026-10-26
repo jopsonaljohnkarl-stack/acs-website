@@ -772,7 +772,7 @@ LAYOUTS = {
 
 LAYOUTS.update({
     "book-a-call": {
-        "1": (d_hero, dict(eyebrow=None, img="janet-book-a-call-1.jpg")),
+        "1": (d_hero, dict(eyebrow=None, img="offshoring-in-australia-book-a-call-1.jpg")),
         "2": (d_points, {}),
         "3": (d_keep, dict(slug="book-a-call", marker='data-acs-surface="bookACall"')),
         "4": (d_seq, dict(bg="field")),
@@ -782,7 +782,7 @@ LAYOUTS.update({
         "2": (d_seq, {}), "3": (d_keep_form, dict(template="contact")), "4": (d_seq, dict(bg="field")),
     },
     "get-a-quote": {
-        "1": (d_hero, dict(eyebrow=None, img="janet-get-a-quote-1.jpg")),
+        "1": (d_hero, dict(eyebrow=None, img="offshoring-in-australia-get-a-quote-1.jpg")),
         "2": (d_seq, {}), "3": (d_seq, {}), "4": (d_seq, dict(bg="field")),
     },
     "thank-you": {

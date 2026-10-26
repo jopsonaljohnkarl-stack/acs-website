@@ -193,7 +193,7 @@ def _group(inner, bg=None, top="60", bottom="60"):
 
 
 def _has_photo(slug):
-    return os.path.exists(os.path.join(HERE, "acs", "assets", "img", f"janet-{slug}-1.jpg"))
+    return os.path.exists(os.path.join(HERE, "acs", "assets", "img", f"acs-{slug}-1.jpg"))
 
 
 def compose_content_page(doc, slug):

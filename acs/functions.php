@@ -347,17 +347,28 @@ add_action(
 		printf( "<meta property=\"og:locale\" content=\"en_AU\">\n" );
 		printf( "<meta property=\"og:title\" content=\"%s\">\n", esc_attr( $title ) );
 		printf( "<meta property=\"og:url\" content=\"%s\">\n", esc_url( $url ) );
-		printf( "<meta name=\"twitter:card\" content=\"summary\">\n" );
+		if ( ! has_post_thumbnail( $post ) ) {
+			printf( "<meta name=\"twitter:card\" content=\"summary\">\n" );
+		}
 		printf( "<meta name=\"twitter:title\" content=\"%s\">\n", esc_attr( $title ) );
 
 		/*
-		 * ⚠ NO og:image, ON PURPOSE. Every photograph on this site is an
-		 * Unsplash stand-in showing no ACS person, client or workplace
-		 * (`PHOTOGRAPHY.md`). An og:image is the picture that represents the
-		 * business everywhere the page is shared, and a placeholder promoted to
-		 * that role is the same mistake as the duotone coming off: a stand-in
-		 * quietly reading as a final choice. It goes in when a real asset does.
+		 * og:image = the page's featured image (26 Oct 2026, Janet's ask). Until
+		 * 11 September every photograph was an Unsplash stand-in and no og:image
+		 * was emitted on purpose (PHOTOGRAPHY.md); Janet's approved set replaced
+		 * them all, so a featured image is now a real asset. No featured image,
+		 * no og:image: the tag is never invented from a theme file.
 		 */
+		$image = has_post_thumbnail( $post ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $post ), 'large' ) : false;
+		if ( is_array( $image ) && ! empty( $image[0] ) ) {
+			printf( "<meta property=\"og:image\" content=\"%s\">\n", esc_url( $image[0] ) );
+			if ( ! empty( $image[1] ) && ! empty( $image[2] ) ) {
+				printf( "<meta property=\"og:image:width\" content=\"%d\">\n", (int) $image[1] );
+				printf( "<meta property=\"og:image:height\" content=\"%d\">\n", (int) $image[2] );
+			}
+			printf( "<meta name=\"twitter:card\" content=\"summary_large_image\">\n" );
+			printf( "<meta name=\"twitter:image\" content=\"%s\">\n", esc_url( $image[0] ) );
+		}
 
 		$graph = array();
 
@@ -438,7 +449,7 @@ add_action(
  * placeholder, while Janet Biag's photograph for that page (supplied 17 Sep)
  * could only go into a slot further down. The template now carries a marker,
  * and this renders the page's own photograph in its place:
- * `assets/img/janet-<page-slug>-1.jpg`, 4:5 at its real size, if that file exists.
+ * `assets/img/acs-<page-slug>-1.jpg`, 4:5 at its real size, if that file exists.
  * If it does not, the marker renders NOTHING: no placeholder, by John's
  * decision of 28 Sep to remove every empty image slot.
  */
@@ -448,10 +459,33 @@ add_filter(
 		if ( 'core/html' !== ( $block['blockName'] ?? '' ) || false === strpos( $content, 'data-acs-page-hero' ) ) {
 			return $content;
 		}
-		$slug = get_post_field( 'post_name', get_queried_object_id() );
-		$file = 'janet-' . sanitize_file_name( $slug ) . '-1.jpg';
-		if ( ! $slug || ! file_exists( get_theme_file_path( 'assets/img/' . $file ) ) ) {
-			return '';
+		/*
+		 * 26 Oct 2026: the slug can change after the photo was named (Janet's
+		 * launch-day slug QA renamed ten pages and their photos vanished), so the
+		 * current slug is tried first, then every old slug WordPress kept in
+		 * `_wp_old_slug`. Still nothing: no marker output, as before.
+		 */
+		$id    = get_queried_object_id();
+		$slugs = array_merge( array( get_post_field( 'post_name', $id ) ), (array) get_post_meta( $id, '_wp_old_slug' ) );
+		$file  = '';
+		foreach ( array_filter( array_map( 'strval', $slugs ) ) as $slug ) {
+			$candidate = 'offshoring-in-australia-' . sanitize_file_name( $slug ) . '-1.jpg';
+			if ( file_exists( get_theme_file_path( 'assets/img/' . $candidate ) ) ) {
+				$file = $candidate;
+				break;
+			}
+		}
+		if ( '' === $file ) {
+			// Last resort (26 Oct): the page's featured image, set for every page
+			// that day from the same photographs. A rename WordPress kept no old
+			// slug for still shows its own photo.
+			$thumb = has_post_thumbnail( $id ) ? wp_get_attachment_image_src( get_post_thumbnail_id( $id ), 'full' ) : false;
+			if ( ! is_array( $thumb ) || empty( $thumb[0] ) ) {
+				return '';
+			}
+			return '<figure class="acs-shot"><div class="acs-shot__frame" style="aspect-ratio:4/5">'
+				. '<img src="' . esc_url( $thumb[0] ) . '" alt="" width="' . (int) $thumb[1] . '" height="' . (int) $thumb[2] . '" loading="eager" fetchpriority="high" decoding="async">'
+				. '</div></figure>';
 		}
 		$src = esc_url( get_theme_file_uri( 'assets/img/' . $file ) );
 		// Real dimensions: the 17 Sep set is 1200x1500, the 2 Oct role set 1080x1350.
@@ -784,4 +818,82 @@ add_filter(
 		return preg_replace( '/<!--(?!\s*\[if).*?-->/s', '', $html );
 	},
 	PHP_INT_MAX
+);
+
+/*
+ * Search-listing fields in wp-admin (26 Oct 2026, launch morning). Janet, doing
+ * the slug and meta QA as an Editor, found no place to edit meta tags: the
+ * description lives in `_acs_meta_description`, fed from `content/pages.json`
+ * by the seeder, and the title tag was always "Page title – All Commercial
+ * Services" from the block theme. Pages now get one box with both fields.
+ *
+ * Title: empty means the default title. Set, it replaces the <title> and the
+ * og/twitter titles (both read `wp_get_document_title()`).
+ * Description: writes the SAME `_acs_meta_description` the seeder fills, so a
+ * local reseed would overwrite an editor's change. Production is live data and
+ * the seeder never runs there; the repo copy in `content/pages.json` is the
+ * one to update when Janet changes a description, so the two stay in step.
+ */
+add_action(
+	'add_meta_boxes_page',
+	static function (): void {
+		add_meta_box(
+			'acs-seo',
+			'Search listing (title tag and meta description)',
+			static function ( WP_Post $post ): void {
+				$title = trim( (string) get_post_meta( $post->ID, '_acs_meta_title', true ) );
+				$desc  = acs_meta_description( $post );
+				wp_nonce_field( 'acs_seo_save', 'acs_seo_nonce' );
+				echo '<p><label for="acs-meta-title"><strong>Title tag</strong>. Empty = "' . esc_html( get_the_title( $post ) ) . ' – ' . esc_html( get_bloginfo( 'name' ) ) . '"</label><br>';
+				echo '<input type="text" id="acs-meta-title" name="acs_meta_title" class="widefat" maxlength="120" value="' . esc_attr( $title ) . '"></p>';
+				echo '<p><label for="acs-meta-description"><strong>Meta description</strong>. Aim for 155 characters or fewer; empty = no description tag.</label><br>';
+				echo '<textarea id="acs-meta-description" name="acs_meta_description" class="widefat" rows="3" maxlength="320">' . esc_textarea( $desc ) . '</textarea></p>';
+			},
+			'page',
+			'normal',
+			'high'
+		);
+	}
+);
+
+add_action(
+	'save_post_page',
+	static function ( int $post_id ): void {
+		if ( ! isset( $_POST['acs_seo_nonce'] ) || ! wp_verify_nonce( (string) $_POST['acs_seo_nonce'], 'acs_seo_save' ) ) {
+			return;
+		}
+		if ( ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) || wp_is_post_revision( $post_id ) ) {
+			return;
+		}
+		if ( ! current_user_can( 'edit_page', $post_id ) ) {
+			return;
+		}
+		$fields = array(
+			'acs_meta_title'       => '_acs_meta_title',
+			'acs_meta_description' => '_acs_meta_description',
+		);
+		foreach ( $fields as $field => $key ) {
+			if ( ! isset( $_POST[ $field ] ) ) {
+				continue;
+			}
+			$value = trim( sanitize_text_field( wp_unslash( (string) $_POST[ $field ] ) ) );
+			if ( '' === $value ) {
+				delete_post_meta( $post_id, $key );
+			} else {
+				update_post_meta( $post_id, $key, $value );
+			}
+		}
+	}
+);
+
+add_filter(
+	'pre_get_document_title',
+	static function ( string $title ): string {
+		if ( ! is_singular( 'page' ) ) {
+			return $title;
+		}
+		$custom = trim( (string) get_post_meta( get_queried_object_id(), '_acs_meta_title', true ) );
+
+		return '' !== $custom ? $custom : $title;
+	}
 );

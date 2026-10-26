@@ -80,7 +80,7 @@ def main():
         for n, f in sorted(items):
             if n > len(slots):
                 held.append((slug, n, f'page has {len(slots)} slot(s)')); continue
-            fname = f'janet-{slug}-{n}.jpg'
+            fname = f'acs-{slug}-{n}.jpg'
             size = web_copy(os.path.join(src_dir, f), os.path.join(IMG, fname)) if apply else None
             if not apply:
                 with Image.open(os.path.join(src_dir, f)) as im:

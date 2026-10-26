@@ -60,7 +60,7 @@ PRICING_PHOTO = (
     "uploaded 17 Sep 2026 as \"pricing.jpg\". Web copy 1200x1500, frame at the photograph's own ratio, 100% kept. "
     "Kept from the previous version of this page on 1 Oct 2026. Used once only. See PHOTOGRAPHY.md. -->\n"
     '<figure class="acs-shot"><div class="acs-shot__frame" style="aspect-ratio:4/5"><img src="/wp-content/themes/acs/'
-    'assets/img/janet-pricing-1.jpg" alt="" width="1200" height="1500" loading="eager" fetchpriority="high" '
+    'assets/img/offshoring-in-australia-pricing-1.jpg" alt="" width="1200" height="1500" loading="eager" fetchpriority="high" '
     'decoding="async"></div></figure>\n<!-- /wp:html -->'
 )
 

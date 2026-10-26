@@ -106,7 +106,7 @@ def main():
     for path in files:
         text = open(path).read()
         slug = os.path.basename(path)[:-5]
-        extra = f'janet-{slug}-1.jpg' if slug in ROLE_PAGES else None
+        extra = f'acs-{slug}-1.jpg' if slug in ROLE_PAGES else None
         edits = plan(text, extra)
         if not edits:
             continue

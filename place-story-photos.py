@@ -104,17 +104,17 @@ def swap_columns(txt, needle):
 
 def main():
     J = sys.argv[1]
-    w, h = janet_copy(os.path.join(J, 'faqs-2.jpg'), 'janet-faqs-2.jpg')
+    w, h = janet_copy(os.path.join(J, 'faqs-2.jpg'), 'offshoring-in-australia-faqs-2.jpg')
     p = os.path.join(C, 'how-your-team-is-supported.html')
     txt = subprocess.run(['git', 'show', f'HEAD:websites/acs/content/how-your-team-is-supported.html'],
                          cwd=HERE, capture_output=True, text=True, check=True).stdout
-    txt = hero_columns(txt, figure('janet-faqs-2.jpg', w, h, f'supplied by Janet Biag, Drive folder {FOLDER}, uploaded 17 Sep 2026 as "faqs (2).jpg" (a different photograph from faqs.jpg).', eager=True))
+    txt = hero_columns(txt, figure('offshoring-in-australia-faqs-2.jpg', w, h, f'supplied by Janet Biag, Drive folder {FOLDER}, uploaded 17 Sep 2026 as "faqs (2).jpg" (a different photograph from faqs.jpg).', eager=True))
     open(p, 'w').write(txt)
 
-    w, h = janet_copy(os.path.join(J, 'operations-assistants-2.jpg'), 'janet-operations-assistants-2.jpg')
+    w, h = janet_copy(os.path.join(J, 'operations-assistants-2.jpg'), 'offshoring-in-australia-operations-assistants-2.jpg')
     txt = restore('results')
     txt = fill(txt, 2, figure('team-12.jpg', *size('team-12.jpg'), 'supplied by Janet Biag 11 Sep 2026 (approved set).'))
-    txt = hero_columns(txt, figure('janet-operations-assistants-2.jpg', w, h, f'supplied by Janet Biag, Drive folder {FOLDER}, uploaded 17 Sep 2026 as "operations-assistants (2).jpg" (a different photograph from operations-assistants.jpg).', eager=True))
+    txt = hero_columns(txt, figure('offshoring-in-australia-operations-assistants-2.jpg', w, h, f'supplied by Janet Biag, Drive folder {FOLDER}, uploaded 17 Sep 2026 as "operations-assistants (2).jpg" (a different photograph from operations-assistants.jpg).', eager=True))
     open(os.path.join(C, 'results.html'), 'w').write(txt)
 
     txt = restore('our-story')
