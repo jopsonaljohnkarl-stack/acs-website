@@ -912,7 +912,7 @@ add_filter(
  * <meta name="robots" content="noindex, nofollow"> on these pages, and they
  * leave the sitemap. Add a slug here when Janet names another one.
  */
-const ACS_PROVIDER_LINK_ON = false;
+const ACS_PROVIDER_LINK_ON = true;
 function acs_noindex_slugs(): array {
 	return array( 'work-with-us' );
 }

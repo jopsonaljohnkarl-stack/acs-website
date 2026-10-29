@@ -54,7 +54,13 @@
 	 *                       approved, inclusions and disclaimer signed. Not reached.
 	 * The drift guard pins the state and every figure to the source email.
 	 */
-	var PRICING_STATE = 'review-only';
+	// 2026-10-27: 'approved' on John Jopson's instruction (14:05 PHT, "flip it"),
+	// after the public site was found serving the figures in 'review-only'.
+	// The register's pricing rows, the comparison source and the inclusions and
+	// disclaimer sign-off listed above were NOT obtained first; the figures are
+	// Chris Banks's 3 Sep 2026 ranges unchanged. Recorded in LOG.md and
+	// decisions/log.md the same day.
+	var PRICING_STATE = 'approved';
 
 	/**
 	 * Monthly client price per role per level, AUD. Source: Chris Banks's email
@@ -162,12 +168,20 @@
 	 *  a figure exists for that slot; otherwise it names its state honestly.
 	 *  Hourly and comparison slots pass null until their own sources land
 	 *  (included hours; an approved Australian comparison). */
-	function renderSlot( node, pendingText, figure, unit ) {
+	function renderSlot( node, pendingText, figure, unit, hideWhenEmpty ) {
+		var stat = node.closest ? node.closest( '.acs-calc__stat' ) : null;
 		node.innerHTML = '';
 		if ( PRICING_STATE === 'pending-approval' || figure === null || figure === undefined ) {
+			// 2026-10-27: a slot with no source yet (hourly rate, local comparison)
+			// is hidden on the public site rather than explaining itself. The
+			// pending sentences were written for the review copy and read as
+			// internal notes to a visitor. The lead slot always shows.
+			if ( hideWhenEmpty && stat ) { stat.hidden = true; return; }
+			if ( stat ) { stat.hidden = false; }
 			node.appendChild( el( 'p', 'acs-calc__pending', pendingText ) );
 			return;
 		}
+		if ( stat ) { stat.hidden = false; }
 		node.appendChild( el( 'p', 'acs-calc__figure', figure ) );
 		if ( unit ) { node.appendChild( el( 'p', 'acs-calc__unit', unit ) ); }
 	}
@@ -178,8 +192,8 @@
 		var monthly = figureText( cell, state.team );
 		var unit = state.team === 1 ? 'per month' : 'per month for ' + state.team + ' team members';
 		renderSlot( monthlyEl, chosen ? 'Pricing for this role is with the business for approval.' : 'Choose a role and a level to see the estimate.', monthly, unit );
-		renderSlot( hourlyEl, 'Follows the monthly figure once the included hours are confirmed.', null );
-		renderSlot( compareEl, 'Awaiting an approved Australian comparison source.', null );
+		renderSlot( hourlyEl, 'Follows the monthly figure once the included hours are confirmed.', null, undefined, true );
+		renderSlot( compareEl, 'Awaiting an approved Australian comparison source.', null, undefined, true );
 
 		panelEl.innerHTML = '';
 		if ( PRICING_STATE === 'review-only' ) {

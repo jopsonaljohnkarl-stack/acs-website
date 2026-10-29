@@ -139,6 +139,7 @@ print("\n5. published pages")
 PATTERNS = [
     ("SAMPLE", r"\bSAMPLE\b"),
     ("LEGAL DRAFT", r"LEGAL DRAFT"),
+    ("draft stamp / placeholder", r"Draft, not for publication|Revision [A-Z]\b|PLACEHOLDER|Nothing was actually sent|not wired to anything"),
     ("review banner", r"acs-review-banner|INTERNAL REVIEW COPY"),
     ("[Confirm ...] / to-be-confirmed note", r"\[(?:Confirm|Solicitor to confirm)[^\]]*\]|to be confirmed\]"),
     ("legal date placeholder", r"\[DD Month YYYY\]"),
