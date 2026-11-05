@@ -1,0 +1,51 @@
+<!--
+  404: PAGE NOT FOUND.
+
+  Added 6 November 2026 after the interface check found the theme had no 404
+  template: WordPress fell back to index.html, whose post loop is empty on a
+  404, so a visitor on a wrong address saw header, white space, footer, and
+  nothing to click. Unknown paths answer 404 by policy (REDIRECTS.md: the old
+  site was spam-injected, so nothing is blanket-redirected to Home); this page
+  is what that policy shows. The same markup as a composed hero (compose-
+  industry.py EYEBROW, H1, SEP, P_LARGE, buttons), no photograph, no claims.
+  Wording is the builder's, not from a client document: four short lines.
+  Deploy: upload this one file to wp-content/themes/acs/templates/ (File
+  Manager); block themes pick 404.html up by the template hierarchy, nothing
+  to register in theme.json.
+-->
+<!-- wp:template-part {"slug":"header","tagName":"header"} /-->
+
+<!-- wp:group {"tagName":"main","layout":{"type":"default"}} -->
+<main class="wp-block-group">
+<!-- wp:group {"backgroundColor": "sheet", "style": {"spacing": {"padding": {"top": "var:preset|spacing|70", "bottom": "var:preset|spacing|70"}}}, "layout": {"type": "constrained", "contentSize": "78rem"}} -->
+<div class="wp-block-group has-sheet-background-color has-background" style="padding-top:var(--wp--preset--spacing--70);padding-bottom:var(--wp--preset--spacing--70)"><!-- wp:paragraph {"fontFamily":"code","fontSize":"x-small","textColor":"structure-bright","style":{"typography":{"textTransform":"uppercase","letterSpacing":"0.12em"}}} -->
+<p class="has-structure-bright-color has-text-color has-code-font-family has-x-small-font-size" style="letter-spacing:0.12em;text-transform:uppercase">Page not found</p>
+<!-- /wp:paragraph -->
+<!-- wp:heading {"level":1,"fontSize":"xx-large","style":{"spacing":{"margin":{"top":"var:preset|spacing|30","bottom":"var:preset|spacing|40"}}}} -->
+<h1 class="wp-block-heading has-xx-large-font-size" style="margin-top:var(--wp--preset--spacing--30);margin-bottom:var(--wp--preset--spacing--40)">That page is not here</h1>
+<!-- /wp:heading -->
+<!-- wp:separator {"backgroundColor":"ink","className":"is-style-wide","style":{"spacing":{"margin":{"top":"0","bottom":"var:preset|spacing|40"}}}} -->
+<hr class="wp-block-separator has-text-color has-ink-color has-alpha-channel-opacity has-ink-background-color has-background is-style-wide" style="margin-top:0;margin-bottom:var(--wp--preset--spacing--40)"/>
+<!-- /wp:separator -->
+<!-- wp:group {"layout":{"type":"default"}} -->
+<div class="wp-block-group"><!-- wp:paragraph {"className":"is-measure","fontSize":"large"} -->
+<p class="is-measure has-large-font-size">The address may be out of date, or the page may have moved. The links below go to the parts of the site people use most.</p>
+<!-- /wp:paragraph -->
+<!-- wp:buttons {"style":{"spacing":{"margin":{"top":"var:preset|spacing|40"}}}} -->
+<div class="wp-block-buttons" style="margin-top:var(--wp--preset--spacing--40)"><!-- wp:button {"backgroundColor":"ink","textColor":"paper"} -->
+<div class="wp-block-button"><a class="wp-block-button__link has-paper-color has-ink-background-color has-text-color has-background wp-element-button" href="/">Go to the home page</a></div>
+<!-- /wp:button -->
+<!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/how-it-works/">How it works</a></div>
+<!-- /wp:button -->
+<!-- wp:button {"className":"is-style-outline"} -->
+<div class="wp-block-button is-style-outline"><a class="wp-block-button__link wp-element-button" href="/contact/">Contact</a></div>
+<!-- /wp:button -->
+</div>
+<!-- /wp:buttons --></div>
+<!-- /wp:group --></div>
+<!-- /wp:group -->
+</main>
+<!-- /wp:group -->
+
+<!-- wp:template-part {"slug":"footer","tagName":"footer"} /-->
