@@ -15,10 +15,16 @@
  * disclaimer sign-off. The drift guard in automations/acs-lead-capture pins
  * the state and every figure to his emails; change either there first.
  *
- * ⚠ ROLES AND LEVELS ARE DECLARED TWICE — here and in configurator.js. The
- * drift guard (automations/acs-lead-capture/test/calculator-drift.test.ts)
- * reads BOTH shipped files and fails when they disagree. Change one, change
- * both.
+ * ⚠ ROLES ARE DECLARED TWICE — here and in configurator.js. The drift guard
+ * (automations/acs-lead-capture/test/calculator-drift.test.ts) reads BOTH
+ * shipped files and fails when they disagree. Change one, change both.
+ *
+ * 2026-11-05: THE LEVEL SELECTOR IS GONE. Dan, through Chris (Slack DM 11:08
+ * PHT): remove Junior, Intermediate and Senior; the calculator shows the job
+ * title and the expected cost only. Each role now carries the one AUD range
+ * Chris supplied on 3 Sep 2026, unchanged; the per-level split (bottom,
+ * midpoint, top) is no longer rendered anywhere. The configurator below keeps
+ * its own level step; it belongs to the enquiry contract.
  *
  * ⚠ AUD ONLY, decided by John 2026-08-27: the buyers are Australian
  * businesses paying in AUD. No currency toggle, no exchange-rate feed.
@@ -33,13 +39,6 @@
 
 	var ROLES = [ 'Bookkeeper', 'Admin Assistant', 'Operations Assistant', 'Telesales', 'Accounting & Finance', 'Operations Manager', 'Social Media Manager', 'AI & Automation Specialist' ];
 
-	/** Scope descriptions, matching the configurator. Whether the calculator
-	 *  shows these, year bands, or both is Chris's open design decision. */
-	var LEVELS = [
-		{ id: 'Junior', note: 'Executes defined tasks within an established process.' },
-		{ id: 'Intermediate', note: 'Owns a workflow end to end. Handles exceptions without escalating them.' },
-		{ id: 'Senior', note: 'Owns outcomes and may coordinate others.' }
-	];
 
 	var TEAM_MAX = 10; // Structural cap only; Chris's maximum replaces it.
 
@@ -63,25 +62,24 @@
 	var PRICING_STATE = 'approved';
 
 	/**
-	 * Monthly client price per role per level, AUD. Source: Chris Banks's email
-	 * of 2026-09-03 11:36 AEST ("ACS Website" thread) gave one range per role;
-	 * his reply at 13:35 PHT the same day said to work off that range for
-	 * Junior, Intermediate and Senior, and that every role has a minimum of
-	 * A$2,600 regardless. So: Junior is the bottom of the range, Senior the
-	 * top, Intermediate the midpoint rounded to the dollar (half up). The
-	 * agent salaries in his first email are NOT here and never will be.
+	 * Monthly client price per role, AUD. Source: Chris Banks's email of
+	 * 2026-09-03 11:36 AEST ("ACS Website" thread), one range per role, and
+	 * his reply at 13:35 PHT the same day: every role has a minimum of
+	 * A$2,600 regardless. From 2026-11-05 the range is shown as he wrote it
+	 * (no level split). The agent salaries in his first email are NOT here
+	 * and never will be.
 	 */
 	var PRICE_FLOOR = 2600;
 
 	var PRICING = {
-		'Admin Assistant': { 'Junior': 2600, 'Intermediate': 2600, 'Senior': 2600 },
-		'Telesales': { 'Junior': 2600, 'Intermediate': 2720, 'Senior': 2840 },
-		'Bookkeeper': { 'Junior': 2600, 'Intermediate': 2600, 'Senior': 2600 },
-		'Operations Assistant': { 'Junior': 2600, 'Intermediate': 2720, 'Senior': 2840 },
-		'Social Media Manager': { 'Junior': 2600, 'Intermediate': 2619, 'Senior': 2637 },
-		'Accounting & Finance': { 'Junior': 2600, 'Intermediate': 3734, 'Senior': 4868 },
-		'Operations Manager': { 'Junior': 2637, 'Intermediate': 3347, 'Senior': 4057 },
-		'AI & Automation Specialist': { 'Junior': 2600, 'Intermediate': 3329, 'Senior': 4057 }
+		'Admin Assistant': { min: 2600, max: 2600 },
+		'Telesales': { min: 2600, max: 2840 },
+		'Bookkeeper': { min: 2600, max: 2600 },
+		'Operations Assistant': { min: 2600, max: 2840 },
+		'Social Media Manager': { min: 2600, max: 2637 },
+		'Accounting & Finance': { min: 2600, max: 4868 },
+		'Operations Manager': { min: 2637, max: 4057 },
+		'AI & Automation Specialist': { min: 2600, max: 4057 }
 	};
 
 	var root = document.querySelector( '[data-acs-calculator]' );
@@ -89,10 +87,9 @@
 		return;
 	}
 
-	var state = { role: null, level: null, team: 1 };
+	var state = { role: null, team: 1 };
 
 	var roleEl = root.querySelector( '[data-acs-calc-roles]' );
-	var levelEl = root.querySelector( '[data-acs-calc-levels]' );
 	var teamEl = root.querySelector( '[data-acs-calc-team]' );
 	var lessEl = root.querySelector( '[data-acs-calc-less]' );
 	var moreEl = root.querySelector( '[data-acs-calc-more]' );
@@ -125,24 +122,6 @@
 		roleEl.addEventListener( 'change', function () {
 			state.role = roleEl.value || null;
 			renderPanel();
-		} );
-	}
-
-	function renderLevels() {
-		levelEl.innerHTML = '';
-		LEVELS.forEach( function ( lvl ) {
-			var btn = el( 'button', 'acs-choice' );
-			btn.type = 'button';
-			btn.setAttribute( 'aria-pressed', state.level === lvl.id ? 'true' : 'false' );
-			if ( state.level === lvl.id ) { btn.classList.add( 'is-chosen' ); }
-			btn.appendChild( el( 'span', 'acs-choice__name', lvl.id ) );
-			btn.appendChild( el( 'span', 'acs-choice__note', lvl.note ) );
-			btn.addEventListener( 'click', function () {
-				state.level = lvl.id;
-				renderLevels();
-				renderPanel();
-			} );
-			levelEl.appendChild( btn );
 		} );
 	}
 
@@ -187,11 +166,11 @@
 	}
 
 	function renderPanel() {
-		var chosen = state.role && state.level;
-		var cell = chosen ? PRICING[ state.role ][ state.level ] : null;
+		var chosen = !! state.role;
+		var cell = chosen ? PRICING[ state.role ] : null;
 		var monthly = figureText( cell, state.team );
 		var unit = state.team === 1 ? 'per month' : 'per month for ' + state.team + ' team members';
-		renderSlot( monthlyEl, chosen ? 'Pricing for this role is with the business for approval.' : 'Choose a role and a level to see the estimate.', monthly, unit );
+		renderSlot( monthlyEl, chosen ? 'Pricing for this role is with the business for approval.' : 'Choose a role to see the estimate.', monthly, unit );
 		renderSlot( hourlyEl, 'Follows the monthly figure once the included hours are confirmed.', null, undefined, true );
 		renderSlot( compareEl, 'Awaiting an approved Australian comparison source.', null, undefined, true );
 
@@ -202,7 +181,6 @@
 		var rows = el( 'div', 'acs-calc__summary' );
 		[
 			[ 'Role', state.role || 'Choose a role' ],
-			[ 'Level', state.level || 'Choose a level' ],
 			[ 'Team size', String( state.team ) ]
 		].forEach( function ( pair ) {
 			var row = el( 'div', 'acs-spec__row' );
@@ -212,7 +190,7 @@
 		} );
 		panelEl.appendChild( rows );
 
-		quoteEl.disabled = ! ( state.role && state.level );
+		quoteEl.disabled = ! state.role;
 	}
 
 	lessEl.addEventListener( 'click', function () {
@@ -223,13 +201,15 @@
 	} );
 
 	/**
-	 * "Get a custom quote" carries the visitor's selections into the
-	 * configurator below, so nothing is retyped. The configurator owns the
-	 * enquiry contract (fields, consent); this only pre-fills and scrolls.
+	 * "Get a custom quote" carries the chosen role into the configurator
+	 * below, so nothing is retyped. The configurator owns the enquiry
+	 * contract (fields, consent); this only pre-fills and scrolls. Since
+	 * 2026-11-05 no level is sent (there is none to send); the configurator
+	 * ignores a missing seniority.
 	 */
 	quoteEl.addEventListener( 'click', function () {
 		document.dispatchEvent( new CustomEvent( 'acs:byt-prefill', {
-			detail: { role: state.role, seniority: state.level }
+			detail: { role: state.role }
 		} ) );
 		var target = document.querySelector( '[data-acs-configurator]' );
 		if ( target ) {
@@ -238,7 +218,6 @@
 	} );
 
 	renderRoles();
-	renderLevels();
 	renderTeam();
 	renderPanel();
 } )();

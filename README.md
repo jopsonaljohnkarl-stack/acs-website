@@ -15,7 +15,3 @@ bash check-site.sh
 Open <http://localhost:8888>. The theme is in `acs/`, and the page content restored by `seed.sh` is in `content/`. On Windows, run the shell scripts from Git Bash. See `acs/README.md` for theme details. The preview and accessibility tools are in `preview/` and `a11y/`.
 
 This is a working build, not an authorized public launch. Live hosting and service credentials are separate from this repository. Do not commit secrets or client review material here.
-
-## Static portfolio preview
-
-The `showcase/site/` directory contains a static snapshot for Vercel. It has a visible John Jopson attribution banner, blocks indexing, and disables form submissions. `vercel.json` serves this directory without running WordPress. To refresh it, start the local WordPress site, run `bash seed.sh`, then run `bash showcase/build.sh` and commit the new snapshot. The static build is a demonstration and does not include WordPress editing or live intake.
