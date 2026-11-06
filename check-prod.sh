@@ -35,6 +35,40 @@ u = urllib.parse.urlsplit(BASE)
 HOST = u.hostname
 LOCAL = HOST in ("localhost", "127.0.0.1") or re.fullmatch(r"[\d.]+", HOST or "") is not None
 
+# Unbuffered, so a slow run shows progress instead of 20 silent minutes (6 Nov 2026).
+sys.stdout.reconfigure(line_buffering=True)
+
+# Preflight: can this machine reach the host, and over which IP family?
+# 6 Nov 2026: the ACS host did not answer IPv4 SYNs from this machine (IPv6 fine;
+# the same was noted on 23 and 26 Oct). Python tries IPv4 first and waits the
+# full timeout before falling back, so each of ~80 requests took 20 s and the run
+# looked hung. Test both families with a 5 s connect, say which answered, and pin
+# the working one for the run.
+import socket as _socket
+if not LOCAL:
+    _port = u.port or (443 if u.scheme == "https" else 80)
+    _alive = {}
+    for _fam, _name in ((_socket.AF_INET, "IPv4"), (_socket.AF_INET6, "IPv6")):
+        try:
+            _addrs = _socket.getaddrinfo(HOST, _port, _fam, _socket.SOCK_STREAM)
+        except _socket.gaierror:
+            _alive[_name] = None; continue
+        try:
+            _s = _socket.create_connection(_addrs[0][4][:2], timeout=5); _s.close(); _alive[_name] = True
+        except OSError:
+            _alive[_name] = False
+    _ok = [n for n, v in _alive.items() if v]
+    _dead = [n for n, v in _alive.items() if v is False]
+    if not _ok:
+        print(f"FAIL  cannot connect to {HOST}:{_port} over IPv4 or IPv6 within 5 s; check the network, or a server firewall block on this address")
+        sys.exit(1)
+    if _dead:
+        print(f"note  {HOST} does not answer over {', '.join(_dead)} from here (5 s connect timeout); running over {_ok[0]} only.\n"
+              f"      If this persists, the route is dead or the server firewall has blocked this machine's {_dead[0]} address.\n")
+    _keep = _socket.AF_INET if _ok[0] == "IPv4" else _socket.AF_INET6
+    _orig_gai = _socket.getaddrinfo
+    _socket.getaddrinfo = lambda *a, **k: [r for r in _orig_gai(*a, **k) if r[0] == _keep] or _orig_gai(*a, **k)
+
 spec = importlib.util.spec_from_file_location("hr", "htaccess-redirects.py")
 hr = importlib.util.module_from_spec(spec); spec.loader.exec_module(hr)
 
