@@ -22,6 +22,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     env:
       BASE: /${{ github.event.repository.name }}
+      # Portfolio credit bar, added to this Pages copy only.
+      BANNER: '<p style="margin:0;min-height:32px;display:flex;align-items:center;justify-content:center;gap:6px;background:var(--wp--preset--color--structure,#0F172A);color:#fff;font:600 .7rem/1 var(--wp--preset--font-family--code,ui-monospace,monospace);letter-spacing:.08em;text-transform:uppercase"><span style="opacity:.72;font-weight:500">Site by</span> John Jopson</p>'
     steps:
       - uses: actions/checkout@v4
       # The static showcase uses root-relative URLs. Pages serves this repo
@@ -37,6 +39,8 @@ jobs:
           # Same intent as vercel.json's X-Robots-Tag: keep this copy out of search.
           find _site -type f -name '*.html' -print0 \
             | xargs -0 sed -i -E '0,/<head[^>]*>/s##&<meta name="robots" content="noindex, nofollow, noarchive">#'
+          find _site -type f -name '*.html' -print0 \
+            | xargs -0 sed -i -E "0,/<body[^>]*>/s||&${BANNER}|"
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
