@@ -33,6 +33,8 @@ jobs:
             | xargs -0 sed -i -E "s#(href|src|action|poster)=\"/([^/\"])#\1=\"${BASE}/\2#g; s#(href|action)=\"/\"#\1=\"${BASE}/\"#g"
           find _site -type f \( -name '*.html' -o -name '*.css' -o -name '*.js' \) -print0 \
             | xargs -0 sed -i -E "s#([\"'(=, ])/wp-content/#\1${BASE}/wp-content/#g"
+          # Same intent as vercel.json's X-Robots-Tag: keep this copy out of search.
+          find _site -type f -name '*.html' -print0             | xargs -0 sed -i -E '0,/<head[^>]*>/s##&<meta name="robots" content="noindex, nofollow, noarchive">#'
           touch _site/.nojekyll
       - uses: actions/upload-pages-artifact@v3
         with:
